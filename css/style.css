@@ -108,7 +108,7 @@ p{margin:0}
 .hero__copy{display:flex;flex-direction:column;justify-content:center}
 .hero__eye{margin-bottom:24px}
 .hero__title{font-size:clamp(46px,6.4vw,102px);line-height:.98}
-.hero__title .line{display:block;overflow:hidden}
+.hero__title .line{display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.04em}
 .hero__title .line>span{display:block}
 .hero__sub{max-width:470px;color:var(--muted);margin-top:26px;font-size:clamp(15px,1.3vw,18px)}
 .hero__cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
@@ -311,9 +311,11 @@ p{margin:0}
   .nav__in{position:relative;display:flex;align-items:center;justify-content:space-between}
   .nav__links{display:none}
   .burger{display:flex;order:0}
-  .brand{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
-  .brand__txt{display:none}
-  .nav .btn--gold{display:inline-flex;order:1;padding:10px 16px;font-size:13px}
+  .nav .brand{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);gap:8px}
+  .nav .brand__mark{width:36px;height:36px}
+  .nav .brand__mark svg{width:36px;height:36px}
+  .nav .brand__txt{display:block;font-size:10px;line-height:1.12;letter-spacing:.02em}
+  .nav .btn--gold{display:inline-flex;order:1;padding:9px 13px;font-size:12px}
   .nav .btn--gold .ic{display:none}
   .hero__mini{flex-wrap:wrap;gap:20px}
   .svc__head{align-items:flex-start;flex-direction:column}

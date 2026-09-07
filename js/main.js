@@ -69,7 +69,7 @@
   (function cursor() {
     var c = $('#cursor'); if (!c || matchMedia('(hover:none)').matches) return;
     var dot = $('.cursor__dot', c), ring = $('.cursor__ring', c);
-    var mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my;
+    var mx = -200, my = -200, rx = -200, ry = -200;  // start off-screen (no stray dot)
     addEventListener('mousemove', function (e) { mx = e.clientX; my = e.clientY; dot.style.left = mx + 'px'; dot.style.top = my + 'px'; });
     (function ring_raf() { rx += (mx - rx) * 0.18; ry += (my - ry) * 0.18; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(ring_raf); })();
     $$('[data-cursor="hover"],a,button').forEach(function (el) {
@@ -118,7 +118,7 @@
     el.innerHTML = '';
     words.forEach(function (o, i) {
       var mask = document.createElement('span');
-      mask.style.cssText = 'display:inline-block;overflow:hidden;vertical-align:top';
+      mask.style.cssText = 'display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.14em;margin-bottom:-.14em';
       var inner = document.createElement('span');
       inner.className = 'line-inner' + (o.em ? ' em' : ''); inner.textContent = o.w;
       mask.appendChild(inner); el.appendChild(mask);
