@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>document.documentElement.classList.add('js')</script>
-<title>Solar Energy Enterprises — Premium Solar for Bikaner</title>
+<title>Solar Energy Enterprise — Premium Solar for Bikaner</title>
 <meta name="description" content="Rajasthan's premium solar partner. Design, installation and lifetime support for homes, businesses and industry across Bikaner. Lower bills. Higher value. A cleaner tomorrow.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-<link rel="stylesheet" href="css/style.css?v=1">
+<link rel="stylesheet" href="css/style.css?v=2">
 </head>
 <body>
 
@@ -23,14 +23,22 @@
 <!-- loader -->
 <div class="loader" id="loader" aria-hidden="true">
   <div class="loader__in">
-    <div class="loader__mark"><svg viewBox="0 0 48 48"><use href="#i-sun"/></svg></div>
-    <div class="loader__name">Solar Energy Enterprises</div>
+    <div class="loader__mark"><svg viewBox="0 0 128 128"><use href="#i-mark"/></svg></div>
+    <div class="loader__name">Solar Energy Enterprise</div>
+    <div class="loader__tag">Renewable Energy</div>
     <div class="loader__bar"><i id="loaderBar"></i></div>
     <div class="loader__pct"><span id="loaderPct">0</span>%</div>
   </div>
 </div>
 
 <svg class="defs" aria-hidden="true"><defs>
+  <linearGradient id="flame" x1="0" y1="1" x2="1" y2="0">
+    <stop offset="0" stop-color="#ff2d16"/><stop offset=".5" stop-color="#ff6a00"/><stop offset="1" stop-color="#ffc21e"/>
+  </linearGradient>
+  <symbol id="i-mark" viewBox="0 0 128 128">
+    <g fill="url(#flame)"><circle cx="11.8" cy="84.2" r="1.1"/><circle cx="10.2" cy="76.0" r="1.5"/><circle cx="12.0" cy="67.0" r="1.9"/><circle cx="17.1" cy="57.8" r="2.3"/><circle cx="25.2" cy="49.0" r="2.7"/><circle cx="35.8" cy="41.2" r="3.1"/><circle cx="48.2" cy="34.8" r="3.6"/><circle cx="61.6" cy="30.3" r="4.0"/><circle cx="75.1" cy="27.9" r="4.4"/><circle cx="87.9" cy="27.8" r="4.8"/><circle cx="99.2" cy="30.0" r="5.2"/><circle cx="108.3" cy="34.4" r="5.6"/><circle cx="114.5" cy="40.7" r="6.0"/><circle cx="107.2" cy="52.3" r="1.0"/><circle cx="106.2" cy="61.0" r="1.4"/><circle cx="101.3" cy="69.9" r="1.8"/><circle cx="93.0" cy="78.4" r="2.1"/><circle cx="82.1" cy="85.5" r="2.5"/><circle cx="69.5" cy="90.6" r="2.9"/><circle cx="56.4" cy="93.3" r="3.3"/><circle cx="44.0" cy="93.3" r="3.7"/><circle cx="33.5" cy="90.7" r="4.0"/><circle cx="25.7" cy="85.6" r="4.4"/><circle cx="21.4" cy="78.5" r="4.8"/></g>
+    <text x="64" y="79" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="42" fill="#ff2d16" letter-spacing="-1">SE</text>
+  </symbol>
   <symbol id="i-sun" viewBox="0 0 48 48"><circle cx="24" cy="24" r="9" fill="none" stroke="currentColor" stroke-width="2.2"/><g stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M24 4v6"/><path d="M24 38v6"/><path d="M4 24h6"/><path d="M38 24h6"/><path d="M9.9 9.9l4.2 4.2"/><path d="M33.9 33.9l4.2 4.2"/><path d="M38.1 9.9l-4.2 4.2"/><path d="M14.1 33.9l-4.2 4.2"/></g></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m0 0-6-6m6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-arrow-dl" viewBox="0 0 24 24"><path d="M7 17 17 7m0 0H8m9 0v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
@@ -46,9 +54,9 @@
 <!-- NAV -->
 <header class="nav" id="nav">
   <div class="wrap nav__in">
-    <a class="brand" href="#top" data-cursor="hover" aria-label="Solar Energy Enterprises — home">
-      <span class="brand__mark"><svg viewBox="0 0 48 48"><use href="#i-sun"/></svg></span>
-      <span class="brand__txt">Solar Energy<br>Enterprises</span>
+    <a class="brand" href="#top" data-cursor="hover" aria-label="Solar Energy Enterprise — home">
+      <span class="brand__mark"><svg viewBox="0 0 128 128"><use href="#i-mark"/></svg></span>
+      <span class="brand__txt">Solar Energy<br><em>Enterprise</em></span>
     </a>
     <nav class="nav__links" aria-label="Primary">
       <a href="#about" data-cursor="hover">About</a>
@@ -68,7 +76,7 @@
     <a href="#about">About</a><a href="#services">Solutions</a><a href="#calculator">Savings</a>
     <a href="#process">Process</a><a href="#voices">Clients</a><a href="#contact">Contact</a>
   </nav>
-  <div class="menu__foot"><span>Bikaner · Rajasthan</span><a href="tel:+919876543210">+91 98765 43210</a></div>
+  <div class="menu__foot"><span>Bikaner · Rajasthan</span><a href="tel:+916376728054">+91 63767 28054</a></div>
 </div>
 
 <main id="top">
@@ -82,7 +90,7 @@
     <div class="hero__veil"></div>
 
     <div class="wrap hero__in">
-      <p class="eyebrow hero__eye"><span class="dot"></span>Bikaner · Rajasthan · Est. 2014</p>
+      <p class="eyebrow hero__eye"><span class="dot"></span>Bikaner · Rajasthan · Since 2018</p>
       <h1 class="hero__title display">
         <span class="line"><span>The premium</span></span>
         <span class="line"><span>way to <em>go solar.</em></span></span>
@@ -102,7 +110,7 @@
         <span class="watch__btn"><svg class="ic"><use href="#i-play"/></svg></span>
         <span>Watch our story<em>2 min film</em></span>
       </a>
-      <div class="hero__stat"><strong>2500+</strong><span>installations powered</span></div>
+      <div class="hero__stat"><strong>200+</strong><span>projects delivered</span></div>
       <div class="scrollcue"><span>Scroll</span><i></i></div>
     </div>
   </section>
@@ -119,6 +127,19 @@
     </div>
   </div>
 
+  <!-- CERTIFICATIONS -->
+  <section class="certs">
+    <div class="wrap certs__in">
+      <p class="eyebrow reveal"><span class="dot"></span>Government-certified &amp; registered</p>
+      <div class="certs__row">
+        <div class="cert reveal"><span class="cert__tick">✓</span><div><strong>MSME</strong><em>Registered enterprise</em></div></div>
+        <div class="cert reveal"><span class="cert__tick">✓</span><div><strong>Udyam</strong><em>Udyog Aadhaar</em></div></div>
+        <div class="cert reveal"><span class="cert__tick">✓</span><div><strong>PM Surya Ghar</strong><em>Empanelled vendor</em></div></div>
+        <div class="cert reveal"><span class="cert__tick">✓</span><div><strong>GST</strong><em>08AFHFS4941J1ZK</em></div></div>
+      </div>
+    </div>
+  </section>
+
   <!-- ABOUT -->
   <section class="about" id="about">
     <div class="wrap about__grid">
@@ -128,10 +149,10 @@
         <p class="lead reveal">We make clean energy simple, honest and beautifully engineered —
           from the first site survey to a lifetime of savings. One local team, accountable for every panel we install.</p>
         <div class="about__stats">
-          <div class="stat reveal"><strong data-count="10" data-suffix="+">0</strong><span>Years powering Rajasthan</span></div>
-          <div class="stat reveal"><strong data-count="2" data-suffix=" MW+">0</strong><span>Clean capacity installed</span></div>
-          <div class="stat reveal"><strong data-count="2500" data-suffix="+">0</strong><span>Happy rooftops</span></div>
+          <div class="stat reveal"><strong data-count="200" data-suffix="+">0</strong><span>Projects delivered</span></div>
+          <div class="stat reveal"><strong data-count="7" data-suffix="+">0</strong><span>Years of journey</span></div>
           <div class="stat reveal"><strong data-count="90" data-suffix="%">0</strong><span>Average bill cut</span></div>
+          <div class="stat reveal"><strong data-count="25" data-suffix=" yr">0</strong><span>Performance warranty</span></div>
         </div>
       </div>
       <figure class="about__fig reveal-img">
@@ -251,8 +272,8 @@
       <h2 class="display reveal-lines">Let's build a cleaner, <em>brighter Bikaner.</em></h2>
       <p class="reveal">Book a free site survey and a personalised quote today. No pressure, just honest numbers.</p>
       <div class="cta__btns reveal">
-        <a class="btn btn--gold btn--lg magnetic" href="tel:+919876543210" data-cursor="hover"><span>Get a free assessment</span><svg class="ic"><use href="#i-arrow"/></svg></a>
-        <a class="btn btn--line btn--lg magnetic" href="#" data-cursor="hover"><span>Talk on WhatsApp</span></a>
+        <a class="btn btn--gold btn--lg magnetic" href="tel:+916376728054" data-cursor="hover"><span>Get a free assessment</span><svg class="ic"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn--line btn--lg magnetic" href="https://wa.me/916376728054" target="_blank" rel="noopener" data-cursor="hover"><span>Talk on WhatsApp</span></a>
       </div>
     </div>
   </section>
@@ -261,20 +282,21 @@
   <footer class="foot">
     <div class="wrap foot__grid">
       <div class="foot__brand">
-        <a class="brand" href="#top"><span class="brand__mark"><svg viewBox="0 0 48 48"><use href="#i-sun"/></svg></span><span class="brand__txt">Solar Energy<br>Enterprises</span></a>
+        <a class="brand" href="#top"><span class="brand__mark"><svg viewBox="0 0 128 128"><use href="#i-mark"/></svg></span><span class="brand__txt">Solar Energy<br><em>Enterprise</em></span></a>
         <p>Clean energy, honestly engineered. Powering homes, businesses and farms across Bikaner and Rajasthan.</p>
       </div>
       <div class="foot__col"><h4>Solutions</h4><a href="#services">Residential</a><a href="#services">Commercial</a><a href="#services">Industrial</a><a href="#services">Agricultural</a><a href="#services">Hybrid + Battery</a></div>
       <div class="foot__col"><h4>Company</h4><a href="#about">About us</a><a href="#process">Process</a><a href="#voices">Clients</a><a href="#calculator">Savings calculator</a></div>
       <div class="foot__col foot__contact"><h4>Get in touch</h4>
-        <a href="tel:+919876543210">+91 98765 43210</a>
-        <a href="mailto:hello@solarenterprises.in">hello@solarenterprises.in</a>
-        <span>Bikaner, Rajasthan 334001</span>
+        <a href="tel:+916376728054">+91 63767 28054</a>
+        <a href="https://wa.me/916376728054" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        <span>Jawahar Nagar, Nr. Dudi Petrol Pump,<br>Bikaner, Rajasthan 334001</span>
+        <span class="foot__hours">GSTIN 08AFHFS4941J1ZK</span>
         <span class="foot__hours">Mon–Sat · 9:30–19:00</span>
       </div>
     </div>
     <div class="wrap foot__base">
-      <span>© 2026 Solar Energy Enterprises. All rights reserved.</span>
+      <span>© 2026 Solar Energy Enterprise. All rights reserved.</span>
       <a class="foot__top" href="#top" data-cursor="hover">Back to top <svg class="ic"><use href="#i-arrow-up"/></svg></a>
     </div>
   </footer>
@@ -285,6 +307,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="js/main.js?v=1"></script>
+<script src="js/main.js?v=2"></script>
 </body>
 </html>

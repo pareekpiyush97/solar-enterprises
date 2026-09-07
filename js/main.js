@@ -36,9 +36,9 @@
       'float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<5;i++){v+=a*noise(p);p=p*2.02;a*=.5;}return v;}' +
       'void main(){vec2 uv=gl_FragCoord.xy/u_res.xy;vec2 q=uv;q.x*=u_res.x/u_res.y;' +
       'float t=u_t*0.04;float n=fbm(q*2.4+vec2(t,t*.5));n+=0.4*fbm(q*5.0+vec2(-t*.7,t*1.1));' +
-      'vec3 ink=vec3(0.039,0.043,0.051);vec3 amber=vec3(0.44,0.24,0.05);vec3 gold=vec3(0.96,0.69,0.18);' +
-      'vec3 col=mix(ink,amber,smoothstep(0.34,0.82,n));col=mix(col,gold,smoothstep(0.74,1.02,n)*0.45);' +
-      'float glow=smoothstep(0.85,0.1,distance(uv,vec2(0.8,0.85)));col+=gold*glow*0.10;' +
+      'vec3 ink=vec3(0.039,0.041,0.049);vec3 amber=vec3(0.42,0.12,0.03);vec3 gold=vec3(1.0,0.42,0.06);' +
+      'vec3 col=mix(ink,amber,smoothstep(0.32,0.82,n));col=mix(col,gold,smoothstep(0.72,1.03,n)*0.5);' +
+      'float glow=smoothstep(0.85,0.1,distance(uv,vec2(0.8,0.85)));col+=vec3(1.0,0.5,0.1)*glow*0.12;' +
       'gl_FragColor=vec4(col,1.0);}';
     function sh(type, src) { var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; }
     var prog = gl.createProgram();
