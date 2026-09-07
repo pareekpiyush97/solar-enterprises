@@ -232,7 +232,7 @@ p{margin:0}
 .proc{padding-block:var(--sec);background:var(--paper)}
 .proc__head{max-width:620px;margin-bottom:clamp(28px,3.4vw,46px)}
 .proc__head h2{font-size:clamp(30px,4.4vw,56px);margin-top:16px}
-.proc__line{height:2px;margin-bottom:42px}
+.proc__line{height:2px;margin-bottom:24px}
 .proc__line svg{width:100%;height:2px;overflow:visible}
 .proc__line line{stroke:var(--gold);stroke-width:2;stroke-dasharray:1000;stroke-dashoffset:1000}
 .proc__steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,4vw,52px)}
@@ -294,8 +294,7 @@ p{margin:0}
 .js .reveal{opacity:0}
 .js .reveal-img{opacity:0}
 .js .reveal-img img{transform:scale(1.1)}
-.js .reveal-lines .line-inner{display:inline-block;transform:translateY(110%)}
-.reveal-lines .line-inner.em{font-style:italic;background:var(--flame);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--amber)}
+.js .reveal-lines{opacity:0}
 
 /* responsive */
 @media (max-width:960px){
@@ -326,9 +325,8 @@ p{margin:0}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation-duration:.001ms!important;transition-duration:.01ms!important}
-  .js .reveal,.js .reveal-img{opacity:1}
+  .js .reveal,.js .reveal-img,.js .reveal-lines{opacity:1}
   .js .reveal-img img{transform:none}
-  .js .reveal-lines .line-inner{transform:none}
 }
 
 /* ============ solution detail pages ============ */

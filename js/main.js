@@ -170,9 +170,9 @@
       if (img) gsap.to(img, { scale: 1, duration: 1.6, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 85%' } });
     });
     $$('.reveal-lines').forEach(function (el) {
-      var inners = splitLines(el);
-      gsap.to(inners, { yPercent: 0, duration: 1.1, ease: 'expo.out', stagger: .06,
-        scrollTrigger: { trigger: el, start: 'top 86%' } });
+      gsap.set(el, { y: 26, opacity: 0 });
+      gsap.to(el, { y: 0, opacity: 1, duration: 1, ease: 'expo.out',
+        scrollTrigger: { trigger: el, start: 'top 90%' } });
     });
   } else if (reduce) {
     $$('.reveal,.reveal-img').forEach(function (el) { el.style.opacity = 1; });
