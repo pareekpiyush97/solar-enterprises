@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-<link rel="stylesheet" href="css/style.css?v=6">
+<link rel="stylesheet" href="css/style.css?v=7">
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
@@ -105,10 +105,10 @@
   <!-- MARQUEE -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee__track" id="marquee">
-      <span>Domestic 3–20 KW</span><i>✦</i><span>Commercial 50–200 KW</span><i>✦</i>
+      <span>Domestic 3–20 KW</span><i>✦</i><span>Commercial 5–200 KW</span><i>✦</i>
       <span>Up to 90% lower bills</span><i>✦</i><span>6-month post-install support</span><i>✦</i>
       <span>State &amp; Central Govt approved</span><i>✦</i>
-      <span>Domestic 3–20 KW</span><i>✦</i><span>Commercial 50–200 KW</span><i>✦</i>
+      <span>Domestic 3–20 KW</span><i>✦</i><span>Commercial 5–200 KW</span><i>✦</i>
       <span>Up to 90% lower bills</span><i>✦</i><span>6-month post-install support</span><i>✦</i>
       <span>State &amp; Central Govt approved</span><i>✦</i>
     </div>
@@ -180,50 +180,36 @@
         <p class="eyebrow"><span class="dot"></span>Solutions &amp; pricing</p>
         <h2 class="display">Solar for home &amp; business.</h2>
       </div>
-      <div class="svc__nav">
-        <button class="svc__btn svc-prev" aria-label="Previous" data-cursor="hover"><svg class="ic"><use href="#i-arrow"/></svg></button>
-        <button class="svc__btn svc-next" aria-label="Next" data-cursor="hover"><svg class="ic"><use href="#i-arrow"/></svg></button>
-      </div>
     </div>
-    <div class="svc__view" id="svcView">
-      <div class="svc__track" id="svcTrack">
-        <article class="scard">
-          <div class="scard__media"><img src="assets/img/sol-residential.jpg?v=3" alt=""><span class="tag tag--res">Residential</span></div>
-          <div class="scard__body"><svg class="scard__ic"><use href="#i-home"/></svg>
-            <h3>Domestic Solar</h3>
-            <p class="scard__spec">3 KW – 20 KW · for homes &amp; villas</p>
-            <p>Rooftop systems sized to your bill, built to last 25 years — with subsidy handled end-to-end.</p>
+    <div class="wrap svc__grid">
+      <a class="soln" href="residential.html" data-cursor="hover">
+        <div class="soln__media"><img src="assets/img/sol-residential.jpg?v=3" alt=""><span class="tag tag--res">Residential</span></div>
+        <div class="soln__body">
+          <svg class="scard__ic"><use href="#i-home"/></svg>
+          <h3>Residential Solar</h3>
+          <p class="scard__spec">3 KW – 20 KW · for homes &amp; villas</p>
+          <p>Rooftop systems sized to your bill, built to last 25 years — subsidy handled end-to-end.</p>
+          <ul class="soln__list"><li>Why solar?</li><li>How it works</li><li>Benefits</li><li>Projects</li></ul>
+          <div class="soln__foot">
             <div class="scard__price"><span>Starting</span><strong>₹1.80 Lakh</strong><em>+ ₹78,000 subsidy</em></div>
+            <span class="soln__go">View details <svg class="ic"><use href="#i-arrow"/></svg></span>
           </div>
-        </article>
-        <article class="scard">
-          <div class="scard__media"><img src="assets/img/about-villa.jpg?v=3" alt=""><span class="tag tag--res">Residential</span></div>
-          <div class="scard__body"><svg class="scard__ic"><use href="#i-home"/></svg>
-            <h3>Premium Villa Systems</h3>
-            <p class="scard__spec">10 KW – 20 KW · higher-capacity homes</p>
-            <p>Larger rooftop arrays with optional battery backup — keep the lights on through cuts.</p>
-            <div class="scard__price"><span>Custom</span><strong>On assessment</strong><em>subsidy eligible</em></div>
+        </div>
+      </a>
+      <a class="soln" href="commercial.html" data-cursor="hover">
+        <div class="soln__media"><img src="assets/img/sol-commercial.jpg?v=3" alt=""><span class="tag tag--com">Commercial</span></div>
+        <div class="soln__body">
+          <svg class="scard__ic"><use href="#i-build"/></svg>
+          <h3>Commercial Solar</h3>
+          <p class="scard__spec">5 KW – 200 KW · offices, business &amp; industry</p>
+          <p>High-yield arrays that cut operating costs for showrooms, hotels, offices and factories.</p>
+          <ul class="soln__list"><li>Business benefits</li><li>Industries served</li><li>ROI &amp; performance</li><li>Projects</li></ul>
+          <div class="soln__foot">
+            <div class="scard__price"><span>Starting</span><strong>₹3.50 Lakh</strong><em>non-subsidy</em></div>
+            <span class="soln__go">View details <svg class="ic"><use href="#i-arrow"/></svg></span>
           </div>
-        </article>
-        <article class="scard">
-          <div class="scard__media"><img src="assets/img/sol-commercial.jpg?v=3" alt=""><span class="tag tag--com">Commercial</span></div>
-          <div class="scard__body"><svg class="scard__ic"><use href="#i-build"/></svg>
-            <h3>Commercial Solar</h3>
-            <p class="scard__spec">50 KW – 200 KW · offices &amp; businesses</p>
-            <p>High-yield arrays that cut operating costs for showrooms, hotels and offices.</p>
-            <div class="scard__price"><span>Starting</span><strong>₹15 Lakh</strong><em>non-subsidy</em></div>
-          </div>
-        </article>
-        <article class="scard">
-          <div class="scard__media"><img src="assets/img/sol-industrial.jpg?v=3" alt=""><span class="tag tag--com">Commercial</span></div>
-          <div class="scard__body"><svg class="scard__ic"><use href="#i-build"/></svg>
-            <h3>Industrial Rooftop</h3>
-            <p class="scard__spec">up to 200 KW · captive power</p>
-            <p>Megawatt-class rooftops and captive plants engineered for heavy industrial loads.</p>
-            <div class="scard__price"><span>Custom</span><strong>On assessment</strong><em>non-subsidy</em></div>
-          </div>
-        </article>
-      </div>
+        </div>
+      </a>
     </div>
     <div class="wrap svc__note">
       <span><svg class="ic"><use href="#i-check"/></svg> 6-month on-site support after installation</span>
@@ -293,7 +279,7 @@
         <a class="brand" href="#top"><span class="brand__mark"><svg viewBox="0 0 128 128"><use href="#i-mark"/></svg></span><span class="brand__txt">Solar Energy<br><em>Enterprise</em></span></a>
         <p>Clean energy, honestly engineered. Powering homes and businesses across Bikaner and Rajasthan since 2018.</p>
       </div>
-      <div class="foot__col"><h4>Solutions</h4><a href="#services">Domestic 3–20 KW</a><a href="#services">Commercial 50–200 KW</a><a href="#services">Villa systems</a><a href="#services">Industrial rooftop</a></div>
+      <div class="foot__col"><h4>Solutions</h4><a href="residential.html">Residential Solar</a><a href="residential.html">Domestic 3–20 KW</a><a href="commercial.html">Commercial Solar</a><a href="commercial.html">Commercial 5–200 KW</a></div>
       <div class="foot__col"><h4>Company</h4><a href="#about">About us</a><a href="#story">Our story</a><a href="#process">Process</a><a href="#voices">Clients</a><a href="support.html">Register a complaint</a></div>
       <div class="foot__col foot__contact"><h4>Get in touch</h4>
         <a href="tel:+916376728054">+91 63767 28054 <em>· Sales</em></a>
@@ -316,6 +302,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="js/main.js?v=4"></script>
+<script src="js/main.js?v=5"></script>
 </body>
 </html>
