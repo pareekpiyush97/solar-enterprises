@@ -233,9 +233,13 @@
 
   /* ---------------- testimonials ---------------- */
   if (typeof Swiper !== 'undefined') new Swiper('.voices__sw', {
-    slidesPerView: 1.05, spaceBetween: 20, grabCursor: true,
+    slidesPerView: 1.1, spaceBetween: 18, grabCursor: true,
     navigation: { prevEl: '.v-prev', nextEl: '.v-next' },
-    breakpoints: { 640: { slidesPerView: 1.6 }, 980: { slidesPerView: 2.3, spaceBetween: 26 } }
+    breakpoints: {
+      560: { slidesPerView: 2.05, spaceBetween: 18 },
+      900: { slidesPerView: 2.6, spaceBetween: 20 },
+      1200: { slidesPerView: 3.15, spaceBetween: 22 }
+    }
   });
 
   /* ---------------- savings calculator ---------------- */
