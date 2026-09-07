@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Customer Support — Solar Energy Enterprise</title>
+<meta name="description" content="Sign in with Google to register a complaint. Our team contacts you within 24 hours to resolve your issue.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=4">
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<svg class="defs" aria-hidden="true"><defs>
+  <linearGradient id="flame" x1="0" y1="1" x2="1" y2="0">
+    <stop offset="0" stop-color="#ff2d16"/><stop offset=".5" stop-color="#ff6a00"/><stop offset="1" stop-color="#ffc21e"/>
+  </linearGradient>
+  <symbol id="i-mark" viewBox="0 0 128 128">
+    <g fill="url(#flame)"><circle cx="11.8" cy="84.2" r="1.1"/><circle cx="10.2" cy="76.0" r="1.5"/><circle cx="12.0" cy="67.0" r="1.9"/><circle cx="17.1" cy="57.8" r="2.3"/><circle cx="25.2" cy="49.0" r="2.7"/><circle cx="35.8" cy="41.2" r="3.1"/><circle cx="48.2" cy="34.8" r="3.6"/><circle cx="61.6" cy="30.3" r="4.0"/><circle cx="75.1" cy="27.9" r="4.4"/><circle cx="87.9" cy="27.8" r="4.8"/><circle cx="99.2" cy="30.0" r="5.2"/><circle cx="108.3" cy="34.4" r="5.6"/><circle cx="114.5" cy="40.7" r="6.0"/><circle cx="107.2" cy="52.3" r="1.0"/><circle cx="106.2" cy="61.0" r="1.4"/><circle cx="101.3" cy="69.9" r="1.8"/><circle cx="93.0" cy="78.4" r="2.1"/><circle cx="82.1" cy="85.5" r="2.5"/><circle cx="69.5" cy="90.6" r="2.9"/><circle cx="56.4" cy="93.3" r="3.3"/><circle cx="44.0" cy="93.3" r="3.7"/><circle cx="33.5" cy="90.7" r="4.0"/><circle cx="25.7" cy="85.6" r="4.4"/><circle cx="21.4" cy="78.5" r="4.8"/></g>
+    <text x="64" y="79" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="42" fill="#ff2d16" letter-spacing="-1">SE</text>
+  </symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m0 0-6-6m6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="M20 12H5m0 0 6 6m-6-6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 7.8c.3-.1.6 0 .8.4l.7 1.4c.1.3 0 .5-.2.7l-.5.5c.5 1 1.3 1.8 2.3 2.3l.5-.6c.2-.2.4-.3.7-.2l1.4.7c.3.2.5.5.4.8-.3 1.2-1.5 1.8-2.6 1.6A7 7 0 0 1 7 10.4c-.2-1.1.4-2.3 1.5-2.6Z" fill="currentColor"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 13 4 4L19 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</defs></svg>
+
+<header class="sup-nav">
+  <div class="wrap sup-nav__in">
+    <a class="brand" href="index.html" aria-label="Solar Energy Enterprise — home">
+      <span class="brand__mark"><svg viewBox="0 0 128 128"><use href="#i-mark"/></svg></span>
+      <span class="brand__txt">Solar Energy<br><em>Enterprise</em></span>
+    </a>
+    <a class="sup-back" href="index.html"><svg class="ic"><use href="#i-back"/></svg><span>Back to site</span></a>
+  </div>
+</header>
+
+<main class="sup">
+  <div class="wrap sup__wrap">
+    <div class="sup__intro">
+      <p class="eyebrow"><span class="dot"></span>Customer Support</p>
+      <h1 class="display">Register a <em>complaint.</em></h1>
+      <p class="sup__lead">Sign in with your Google account and tell us what's wrong. Your complaint reaches
+        our team on WhatsApp instantly — and we'll get in touch to resolve it <strong>within 24 hours</strong>.</p>
+      <ul class="sup__steps">
+        <li><span>1</span> Sign in securely with Google</li>
+        <li><span>2</span> Describe your issue</li>
+        <li><span>3</span> We contact you within 24 hours</li>
+      </ul>
+    </div>
+
+    <div class="sup__card">
+      <!-- STEP 1: auth -->
+      <div id="authStep">
+        <h2 class="sup__h2">Sign in to continue</h2>
+        <p class="sup__hint">We use your Google account only to verify you and follow up on your complaint.</p>
+        <div id="gbtn" class="sup__gbtn"></div>
+        <div id="fallback" class="sup__fallback" hidden>
+          <div class="sup__or"><span>or continue with your email</span></div>
+          <label for="fbName">Full name</label>
+          <input id="fbName" type="text" placeholder="Your name" autocomplete="name">
+          <label for="fbEmail">Email (Gmail)</label>
+          <input id="fbEmail" type="email" placeholder="you@gmail.com" autocomplete="email">
+          <button id="fbGo" class="btn btn--gold" type="button"><span>Continue</span><svg class="ic"><use href="#i-arrow"/></svg></button>
+        </div>
+      </div>
+
+      <!-- STEP 2: complaint form -->
+      <form id="cform" hidden>
+        <div class="sup__user">
+          <img id="uPic" alt="" hidden>
+          <div><strong id="uName">—</strong><span id="uEmail">—</span></div>
+          <button type="button" id="signout" class="sup__signout">Sign out</button>
+        </div>
+        <div class="sup__field">
+          <label for="cPhone">Your phone / WhatsApp number *</label>
+          <input id="cPhone" type="tel" inputmode="tel" placeholder="+91 " required>
+        </div>
+        <div class="sup__field">
+          <label for="cCat">Complaint type *</label>
+          <select id="cCat" required>
+            <option value="" disabled selected>Select a category</option>
+            <option>Installation issue</option>
+            <option>Panel / inverter fault</option>
+            <option>Low power generation</option>
+            <option>Billing / subsidy / net-metering</option>
+            <option>Service &amp; maintenance</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="sup__field">
+          <label for="cSub">Subject *</label>
+          <input id="cSub" type="text" placeholder="Short summary of the issue" required>
+        </div>
+        <div class="sup__field">
+          <label for="cMsg">Describe the issue *</label>
+          <textarea id="cMsg" rows="4" placeholder="What happened, since when, and any system details…" required></textarea>
+        </div>
+        <div class="sup__field">
+          <label for="cTime">Best time to contact you</label>
+          <input id="cTime" type="text" placeholder="e.g. Today after 5 PM">
+        </div>
+        <button type="submit" class="btn btn--gold btn--lg sup__submit">
+          <svg class="ic"><use href="#i-wa"/></svg><span>Send complaint on WhatsApp</span>
+        </button>
+        <p class="sup__note">Tapping this opens WhatsApp with your complaint pre-filled to our support number
+          <b>+91&nbsp;98296&nbsp;41110</b>. Press send in WhatsApp to submit.</p>
+      </form>
+
+      <!-- STEP 3: done -->
+      <div id="doneStep" hidden>
+        <div class="sup__done-ic"><svg class="ic"><use href="#i-check"/></svg></div>
+        <h2 class="sup__h2">Complaint sent 🎉</h2>
+        <p class="sup__hint">Thank you, <span id="doneName">friend</span>. If WhatsApp didn't open, use the button below.
+          Our team will reach out on your number within <strong>24 hours</strong>.</p>
+        <a id="waLink" class="btn btn--gold" href="#" target="_blank" rel="noopener"><svg class="ic"><use href="#i-wa"/></svg><span>Open WhatsApp again</span></a>
+        <button id="another" type="button" class="btn btn--line" style="margin-top:12px"><span>Register another</span></button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="sup-foot">
+  <div class="wrap sup-foot__in">
+    <span>© 2026 Solar Energy Enterprise · Bikaner, Rajasthan</span>
+    <a href="tel:+916376728054">+91 63767 28054</a>
+  </div>
+</footer>
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="js/support.js?v=1"></script>
+</body>
+</html>
