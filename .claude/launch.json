@@ -1,0 +1,3 @@
+{ "version": "0.0.1", "configurations": [
+  { "name": "solar", "runtimeExecutable": "node", "runtimeArgs": ["serve.cjs","4970","."], "port": 4970 }
+] }

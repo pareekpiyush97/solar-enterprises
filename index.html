@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js')</script>
+<title>Solar Energy Enterprises — Premium Solar for Bikaner</title>
+<meta name="description" content="Rajasthan's premium solar partner. Design, installation and lifetime support for homes, businesses and industry across Bikaner. Lower bills. Higher value. A cleaner tomorrow.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<link rel="stylesheet" href="css/style.css?v=1">
+</head>
+<body>
+
+<!-- grain + gradient texture -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- custom cursor -->
+<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span></div>
+
+<!-- loader -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__in">
+    <div class="loader__mark"><svg viewBox="0 0 48 48"><use href="#i-sun"/></svg></div>
+    <div class="loader__name">Solar Energy Enterprises</div>
+    <div class="loader__bar"><i id="loaderBar"></i></div>
+    <div class="loader__pct"><span id="loaderPct">0</span>%</div>
+  </div>
+</div>
+
+<svg class="defs" aria-hidden="true"><defs>
+  <symbol id="i-sun" viewBox="0 0 48 48"><circle cx="24" cy="24" r="9" fill="none" stroke="currentColor" stroke-width="2.2"/><g stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M24 4v6"/><path d="M24 38v6"/><path d="M4 24h6"/><path d="M38 24h6"/><path d="M9.9 9.9l4.2 4.2"/><path d="M33.9 33.9l4.2 4.2"/><path d="M38.1 9.9l-4.2 4.2"/><path d="M14.1 33.9l-4.2 4.2"/></g></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m0 0-6-6m6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-arrow-dl" viewBox="0 0 24 24"><path d="M7 17 17 7m0 0H8m9 0v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5-11-6.5Z" fill="currentColor"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11 12 4l8 7M6 9.5V20h12V9.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+  <symbol id="i-build" viewBox="0 0 24 24"><path d="M4 21V6l8-3 8 3v15M9 21v-4h6v4M8 8h1M8 12h1M15 8h1M15 12h1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-factory" viewBox="0 0 24 24"><path d="M3 21V10l6 4V10l6 4V5h6v16Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20 4C10 4 4 9 4 16c0 2 .7 3.4.7 3.4S8 11 19 8c0 0-8 3.5-11.5 11.5C11 21 20 20 20 4Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-battery" viewBox="0 0 24 24"><rect x="3" y="8" width="16" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M21 11v4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="m11 9-2 4h3l-2 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+  <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 20V5m0 0-6 6m6-6 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</defs></svg>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="wrap nav__in">
+    <a class="brand" href="#top" data-cursor="hover" aria-label="Solar Energy Enterprises — home">
+      <span class="brand__mark"><svg viewBox="0 0 48 48"><use href="#i-sun"/></svg></span>
+      <span class="brand__txt">Solar Energy<br>Enterprises</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#about" data-cursor="hover">About</a>
+      <a href="#services" data-cursor="hover">Solutions</a>
+      <a href="#calculator" data-cursor="hover">Savings</a>
+      <a href="#process" data-cursor="hover">Process</a>
+      <a href="#voices" data-cursor="hover">Clients</a>
+    </nav>
+    <a class="btn btn--gold magnetic" href="#contact" data-cursor="hover"><span>Get a Quote</span><svg class="ic"><use href="#i-arrow"/></svg></a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- mobile menu -->
+<div class="menu" id="menu" aria-hidden="true">
+  <nav class="menu__links">
+    <a href="#about">About</a><a href="#services">Solutions</a><a href="#calculator">Savings</a>
+    <a href="#process">Process</a><a href="#voices">Clients</a><a href="#contact">Contact</a>
+  </nav>
+  <div class="menu__foot"><span>Bikaner · Rajasthan</span><a href="tel:+919876543210">+91 98765 43210</a></div>
+</div>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <canvas class="hero__gl" id="gl" aria-hidden="true"></canvas>
+    <div class="hero__img" data-parallax="0.18">
+      <img src="assets/img/hero.jpg?v=3" srcset="assets/img/hero-mobile.jpg?v=3 1400w, assets/img/hero.jpg?v=3 2560w" sizes="100vw" alt="Solar panels at golden hour" fetchpriority="high">
+    </div>
+    <div class="hero__veil"></div>
+
+    <div class="wrap hero__in">
+      <p class="eyebrow hero__eye"><span class="dot"></span>Bikaner · Rajasthan · Est. 2014</p>
+      <h1 class="hero__title display">
+        <span class="line"><span>The premium</span></span>
+        <span class="line"><span>way to <em>go solar.</em></span></span>
+      </h1>
+      <div class="hero__row">
+        <p class="hero__sub">Design, installation and 25 years of support — for every home,
+          business and farm across Rajasthan. Lower bills. Higher value. A cleaner tomorrow.</p>
+        <div class="hero__cta">
+          <a class="btn btn--gold magnetic" href="#calculator" data-cursor="hover"><span>Calculate your savings</span><svg class="ic"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn--line magnetic" href="#services" data-cursor="hover"><span>Explore solutions</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap hero__meta">
+      <a class="watch" href="#about" data-cursor="hover">
+        <span class="watch__btn"><svg class="ic"><use href="#i-play"/></svg></span>
+        <span>Watch our story<em>2 min film</em></span>
+      </a>
+      <div class="hero__stat"><strong>2500+</strong><span>installations powered</span></div>
+      <div class="scrollcue"><span>Scroll</span><i></i></div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track" id="marquee">
+      <span>Save up to 90% on bills</span><i>✦</i><span>25-year performance warranty</span><i>✦</i>
+      <span>MNRE-certified installers</span><i>✦</i><span>Lifetime local support</span><i>✦</i>
+      <span>Subsidy handled end-to-end</span><i>✦</i>
+      <span>Save up to 90% on bills</span><i>✦</i><span>25-year performance warranty</span><i>✦</i>
+      <span>MNRE-certified installers</span><i>✦</i><span>Lifetime local support</span><i>✦</i>
+      <span>Subsidy handled end-to-end</span><i>✦</i>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="wrap about__grid">
+      <div class="about__copy">
+        <p class="eyebrow reveal"><span class="dot"></span>Who we are</p>
+        <h2 class="display reveal-lines">More than solar. <em>A brighter Bikaner.</em></h2>
+        <p class="lead reveal">We make clean energy simple, honest and beautifully engineered —
+          from the first site survey to a lifetime of savings. One local team, accountable for every panel we install.</p>
+        <div class="about__stats">
+          <div class="stat reveal"><strong data-count="10" data-suffix="+">0</strong><span>Years powering Rajasthan</span></div>
+          <div class="stat reveal"><strong data-count="2" data-suffix=" MW+">0</strong><span>Clean capacity installed</span></div>
+          <div class="stat reveal"><strong data-count="2500" data-suffix="+">0</strong><span>Happy rooftops</span></div>
+          <div class="stat reveal"><strong data-count="90" data-suffix="%">0</strong><span>Average bill cut</span></div>
+        </div>
+      </div>
+      <figure class="about__fig reveal-img">
+        <img src="assets/img/about-villa.jpg?v=3" alt="A home powered by rooftop solar" data-parallax="0.12">
+        <figcaption><span>Cleaner homes,</span><span>happier families.</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- SERVICES (pinned horizontal) -->
+  <section class="svc" id="services">
+    <div class="svc__head wrap">
+      <p class="eyebrow"><span class="dot"></span>What we build</p>
+      <h2 class="display">Solar for every need.</h2>
+      <p class="svc__hint" data-cursor="hover">Drag / scroll →</p>
+    </div>
+    <div class="svc__view" id="svcView">
+      <div class="svc__track" id="svcTrack">
+        <article class="scard" data-img="sol-residential"><div class="scard__media"><img src="assets/img/sol-residential.jpg?v=3" alt=""></div>
+          <div class="scard__body"><span class="scard__no">01</span><svg class="scard__ic"><use href="#i-home"/></svg>
+          <h3>Residential Solar</h3><p>Rooftop systems designed for homes and villas — sized to your bill, built to last 25 years.</p></div></article>
+        <article class="scard"><div class="scard__media"><img src="assets/img/sol-commercial.jpg?v=3" alt=""></div>
+          <div class="scard__body"><span class="scard__no">02</span><svg class="scard__ic"><use href="#i-build"/></svg>
+          <h3>Commercial Solar</h3><p>Cut operating costs for offices, hotels and showrooms with high-yield commercial arrays.</p></div></article>
+        <article class="scard"><div class="scard__media"><img src="assets/img/sol-industrial.jpg?v=3" alt=""></div>
+          <div class="scard__body"><span class="scard__no">03</span><svg class="scard__ic"><use href="#i-factory"/></svg>
+          <h3>Industrial Solar</h3><p>Megawatt-scale plants and captive power for factories and large industry.</p></div></article>
+        <article class="scard"><div class="scard__media"><img src="assets/img/sol-agricultural.jpg?v=3" alt=""></div>
+          <div class="scard__body"><span class="scard__no">04</span><svg class="scard__ic"><use href="#i-leaf"/></svg>
+          <h3>Agricultural Solar</h3><p>Solar pumps and farm power under PM-KUSUM — reliable irrigation, near-zero running cost.</p></div></article>
+        <article class="scard"><div class="scard__media"><img src="assets/img/sol-hybrid.jpg?v=3" alt=""></div>
+          <div class="scard__body"><span class="scard__no">05</span><svg class="scard__ic"><use href="#i-battery"/></svg>
+          <h3>Hybrid + Battery</h3><p>Store the sun. Keep the lights on through cuts with intelligent battery backup.</p></div></article>
+        <div class="svc__end"><p class="display">Not sure which fits?</p><a class="btn btn--gold magnetic" href="#calculator" data-cursor="hover"><span>Find out in 30 seconds</span><svg class="ic"><use href="#i-arrow"/></svg></a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULATOR -->
+  <section class="calc" id="calculator">
+    <div class="calc__bg"><img src="assets/img/calculator.jpg?v=3" alt="" data-parallax="0.1"></div>
+    <div class="wrap calc__in">
+      <div class="calc__head">
+        <p class="eyebrow"><span class="dot"></span>Savings calculator</p>
+        <h2 class="display reveal-lines">See how much <em>you can save.</em></h2>
+        <p class="reveal">Move the slider to your monthly electricity bill. We'll estimate your system,
+          your savings and how fast it pays for itself.</p>
+      </div>
+      <div class="calc__panel reveal">
+        <div class="calc__control">
+          <label for="bill">Your monthly electricity bill</label>
+          <output id="billOut">₹3,000</output>
+          <input id="bill" type="range" min="500" max="25000" step="100" value="3000">
+          <div class="calc__scale"><span>₹500</span><span>₹25,000</span></div>
+          <div class="calc__type" role="tablist" aria-label="Property type">
+            <button class="is-on" data-k="res" role="tab">Home</button>
+            <button data-k="com" role="tab">Business</button>
+            <button data-k="ind" role="tab">Industry</button>
+          </div>
+        </div>
+        <div class="calc__out">
+          <div class="calc__big"><span class="calc__lbl">Estimated 25-year savings</span>
+            <strong>₹<span id="save25">0</span></strong></div>
+          <div class="calc__grid">
+            <div><span id="sysKw">0</span><em>kW system</em></div>
+            <div><span>₹<span id="saveMo">0</span></span><em>saved / month</em></div>
+            <div><span id="payback">0</span><em>yr payback</em></div>
+            <div><span id="co2">0</span><em>t CO₂ / yr cut</em></div>
+          </div>
+          <a class="btn btn--gold magnetic calc__cta" href="#contact" data-cursor="hover"><span>Get my exact quote</span><svg class="ic"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="proc" id="process">
+    <div class="wrap">
+      <div class="proc__head">
+        <p class="eyebrow reveal"><span class="dot"></span>How it works</p>
+        <h2 class="display reveal-lines">A simple, transparent <em>process.</em></h2>
+      </div>
+      <div class="proc__line"><svg preserveAspectRatio="none" viewBox="0 0 1000 2"><line id="procLine" x1="0" y1="1" x2="1000" y2="1"/></svg></div>
+      <ol class="proc__steps">
+        <li class="reveal"><span class="proc__no">01</span><h3>Free consultation</h3><p>We understand your usage, goals and budget.</p></li>
+        <li class="reveal"><span class="proc__no">02</span><h3>Site survey</h3><p>Roof, shadow and structural analysis on-site.</p></li>
+        <li class="reveal"><span class="proc__no">03</span><h3>Design & quote</h3><p>A tailored system with clear, itemised pricing.</p></li>
+        <li class="reveal"><span class="proc__no">04</span><h3>Installation</h3><p>Certified engineers, premium components, on time.</p></li>
+        <li class="reveal"><span class="proc__no">05</span><h3>Net metering</h3><p>We handle DISCOM paperwork and subsidy end-to-end.</p></li>
+        <li class="reveal"><span class="proc__no">06</span><h3>Lifetime support</h3><p>Monitoring and service you can rely on for decades.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="voices" id="voices">
+    <div class="wrap voices__head">
+      <p class="eyebrow reveal"><span class="dot"></span>Client stories</p>
+      <h2 class="display reveal-lines">Real people. <em>Real savings.</em></h2>
+    </div>
+    <div class="swiper voices__sw">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide vcard"><p class="vcard__q">“My electricity bill went from ₹6,000 to almost nothing. Genuinely professional team — they handled every bit of paperwork.”</p><div class="vcard__who"><img src="assets/img/portrait-1.png?v=3" alt=""><div><strong>Ramesh Soni</strong><span>Homeowner · Bikaner</span></div><div class="vcard__stars">★★★★★</div></div></div>
+        <div class="swiper-slide vcard"><p class="vcard__q">“We powered our whole showroom with solar. Payback is on track for under four years — the numbers were exactly as promised.”</p><div class="vcard__who"><img src="assets/img/avatar-2.png?v=3" alt=""><div><strong>Priya Agarwal</strong><span>Business owner · Nagaur</span></div><div class="vcard__stars">★★★★★</div></div></div>
+        <div class="swiper-slide vcard"><p class="vcard__q">“Best solar decision for our farm. The pump runs all day on sun and our running cost has dropped to nearly zero.”</p><div class="vcard__who"><img src="assets/img/avatar-3.png?v=3" alt=""><div><strong>Mahendra Singh</strong><span>Farmer · Sri Ganganagar</span></div><div class="vcard__stars">★★★★★</div></div></div>
+        <div class="swiper-slide vcard"><p class="vcard__q">“Clean install, honest pricing and they actually pick up the phone years later. That's rare. Highly recommended.”</p><div class="vcard__who"><img src="assets/img/avatar-1.png?v=3" alt=""><div><strong>Ankit Verma</strong><span>Homeowner · Jodhpur</span></div><div class="vcard__stars">★★★★★</div></div></div>
+      </div>
+      <div class="voices__nav"><button class="v-prev" aria-label="Previous" data-cursor="hover"><svg class="ic"><use href="#i-arrow"/></svg></button><button class="v-next" aria-label="Next" data-cursor="hover"><svg class="ic"><use href="#i-arrow"/></svg></button></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="contact">
+    <div class="cta__bg"><img src="assets/img/cta.jpg?v=3" alt="" data-parallax="0.1"></div>
+    <div class="wrap cta__in">
+      <p class="eyebrow reveal"><span class="dot"></span>Ready to switch?</p>
+      <h2 class="display reveal-lines">Let's build a cleaner, <em>brighter Bikaner.</em></h2>
+      <p class="reveal">Book a free site survey and a personalised quote today. No pressure, just honest numbers.</p>
+      <div class="cta__btns reveal">
+        <a class="btn btn--gold btn--lg magnetic" href="tel:+919876543210" data-cursor="hover"><span>Get a free assessment</span><svg class="ic"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn--line btn--lg magnetic" href="#" data-cursor="hover"><span>Talk on WhatsApp</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="wrap foot__grid">
+      <div class="foot__brand">
+        <a class="brand" href="#top"><span class="brand__mark"><svg viewBox="0 0 48 48"><use href="#i-sun"/></svg></span><span class="brand__txt">Solar Energy<br>Enterprises</span></a>
+        <p>Clean energy, honestly engineered. Powering homes, businesses and farms across Bikaner and Rajasthan.</p>
+      </div>
+      <div class="foot__col"><h4>Solutions</h4><a href="#services">Residential</a><a href="#services">Commercial</a><a href="#services">Industrial</a><a href="#services">Agricultural</a><a href="#services">Hybrid + Battery</a></div>
+      <div class="foot__col"><h4>Company</h4><a href="#about">About us</a><a href="#process">Process</a><a href="#voices">Clients</a><a href="#calculator">Savings calculator</a></div>
+      <div class="foot__col foot__contact"><h4>Get in touch</h4>
+        <a href="tel:+919876543210">+91 98765 43210</a>
+        <a href="mailto:hello@solarenterprises.in">hello@solarenterprises.in</a>
+        <span>Bikaner, Rajasthan 334001</span>
+        <span class="foot__hours">Mon–Sat · 9:30–19:00</span>
+      </div>
+    </div>
+    <div class="wrap foot__base">
+      <span>© 2026 Solar Energy Enterprises. All rights reserved.</span>
+      <a class="foot__top" href="#top" data-cursor="hover">Back to top <svg class="ic"><use href="#i-arrow-up"/></svg></a>
+    </div>
+  </footer>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="js/main.js?v=1"></script>
+</body>
+</html>
