@@ -107,7 +107,7 @@ p{margin:0}
   align-items:stretch;min-height:min(58vh,540px)}
 .hero__copy{display:flex;flex-direction:column;justify-content:center}
 .hero__eye{margin-bottom:24px}
-.hero__title{font-size:clamp(46px,6.4vw,102px);line-height:.98}
+.hero__title{font-size:clamp(44px,6vw,96px);line-height:1;text-wrap:balance;max-width:15ch}
 .hero__title .line{display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.04em}
 .hero__title .line>span{display:block}
 .hero__sub{max-width:470px;color:var(--muted);margin-top:26px;font-size:clamp(15px,1.3vw,18px)}
