@@ -135,7 +135,7 @@
       .from('.hero__title .line>span', { yPercent: 110, duration: 1.2, stagger: .12 }, '-=.5')
       .from('.hero__sub', { y: 24, opacity: 0, duration: 1 }, '-=.7')
       .from('.hero__cta > *', { y: 24, opacity: 0, duration: .9, stagger: .1 }, '-=.8')
-      .from('.hero__meta > *', { y: 20, opacity: 0, duration: .9, stagger: .08 }, '-=.7');
+      .from('.hero__mini > *', { y: 20, opacity: 0, duration: .9, stagger: .08 }, '-=.7');
   }
   (function loader() {
     var ld = $('#loader'), bar = $('#loaderBar'), pct = $('#loaderPct');
@@ -207,20 +207,22 @@
     gsap.to(m, { x: -half, duration: 22, ease: 'none', repeat: -1 });
   })();
 
-  /* ---------------- services: pinned horizontal ---------------- */
-  if (hasGSAP && !reduce) {
-    var mm = gsap.matchMedia();
-    mm.add('(min-width:721px)', function () {
-      var track = $('#svcTrack'), view = $('#svcView');
-      if (!track || !view) return;
-      var getAmt = function () { return track.scrollWidth - view.clientWidth + 0; };
-      gsap.to(track, {
-        x: function () { return -getAmt(); }, ease: 'none',
-        scrollTrigger: { trigger: view, start: 'top top', end: function () { return '+=' + getAmt(); },
-          pin: true, scrub: 1, anticipatePin: 1, invalidateOnRefresh: true }
-      });
-    });
-  }
+  /* ---------------- solutions: horizontal scroll + prev/next ---------------- */
+  (function svcScroll() {
+    var view = $('#svcView'); if (!view) return;
+    var prev = $('.svc-prev'), next = $('.svc-next');
+    var card = view.querySelector('.scard');
+    var step = function () { return (card ? card.getBoundingClientRect().width : 320) + 22; };
+    function update() {
+      if (!prev || !next) return;
+      prev.disabled = view.scrollLeft <= 2;
+      next.disabled = view.scrollLeft + view.clientWidth >= view.scrollWidth - 2;
+    }
+    if (next) next.addEventListener('click', function () { view.scrollBy({ left: step(), behavior: 'smooth' }); });
+    if (prev) prev.addEventListener('click', function () { view.scrollBy({ left: -step(), behavior: 'smooth' }); });
+    view.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update); update();
+  })();
 
   /* ---------------- process line draw ---------------- */
   if (hasGSAP && !reduce) {
