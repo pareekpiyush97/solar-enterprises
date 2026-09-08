@@ -170,6 +170,14 @@ p{margin:0}
   margin:30px 0!important;line-height:1.1;letter-spacing:-.02em}
 .story__sign{color:var(--muted);font-size:14px;line-height:1.7}
 .story__sign strong{color:var(--amber);font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(18px,2vw,24px)}
+.story__ceo{margin:28px 0 0;position:relative;max-width:400px;border-radius:var(--r-lg);overflow:hidden;
+  background:linear-gradient(180deg,#fff,#f2ece1);border:1px solid var(--line);box-shadow:0 34px 66px -46px rgba(30,20,10,.42)}
+.story__ceo img{display:block;width:100%;height:auto}
+.story__ceo figcaption{position:absolute;left:0;right:0;bottom:0;padding:38px 22px 18px;
+  background:linear-gradient(180deg,transparent,rgba(18,10,3,.8))}
+.story__ceo figcaption strong{display:block;font-family:var(--serif);font-weight:500;font-size:22px;color:#fff}
+.story__ceo figcaption span{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--gold)}
+@media (max-width:900px){.story__ceo{margin:26px auto 0}}
 
 /* solutions / work showcase */
 .svc{background:var(--cream);padding-block:var(--sec);border-block:1px solid var(--line-2);overflow:hidden}
