@@ -1,4 +1,4 @@
-/* Solar Energy Enterprise — support / complaint portal */
+/* Solar Energy Enterprises — support / complaint portal */
 (function () {
   'use strict';
 
@@ -78,7 +78,7 @@
   /* ---- build WhatsApp message + submit ---- */
   function waLink(fields) {
     var lines = [
-      '*New Complaint — Solar Energy Enterprise*',
+      '*New Complaint — Solar Energy Enterprises*',
       '',
       '👤 Name: ' + user.name,
       '✉️ Email: ' + user.email,
