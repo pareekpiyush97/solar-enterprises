@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-<link rel="stylesheet" href="css/style.css?v=17">
+<link rel="stylesheet" href="css/style.css?v=18">
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
@@ -144,7 +144,9 @@
         </div>
       </div>
       <figure class="about__fig reveal-img">
-        <img src="assets/img/about-villa.jpg?v=3" alt="A home powered by rooftop solar" data-parallax="0.1">
+        <video class="about__vid" autoplay muted loop playsinline preload="none" poster="assets/img/about-poster.jpg?v=18" data-parallax="0.1" aria-label="Our team installing rooftop solar">
+          <source src="assets/video/about.mp4" type="video/mp4">
+        </video>
         <figcaption><span>Cleaner homes,</span><span>happier families.</span></figcaption>
       </figure>
     </div>
@@ -184,7 +186,7 @@
     </div>
     <div class="wrap svc__grid">
       <a class="soln" href="residential.html" data-cursor="hover">
-        <div class="soln__media"><img src="assets/img/sol-residential.jpg?v=3" alt=""><span class="tag tag--res">Residential</span></div>
+        <div class="soln__media"><video class="soln__vid" autoplay muted loop playsinline preload="none" poster="assets/img/sol-residential-poster.jpg?v=18"><source src="assets/video/sol-residential.mp4" type="video/mp4"></video><span class="tag tag--res">Residential</span></div>
         <div class="soln__body">
           <svg class="scard__ic"><use href="#i-home"/></svg>
           <h3>Residential Solar</h3>
@@ -198,7 +200,7 @@
         </div>
       </a>
       <a class="soln" href="commercial.html" data-cursor="hover">
-        <div class="soln__media"><img src="assets/img/sol-commercial.jpg?v=3" alt=""><span class="tag tag--com">Commercial</span></div>
+        <div class="soln__media"><video class="soln__vid" autoplay muted loop playsinline preload="none" poster="assets/img/sol-commercial-poster.jpg?v=18"><source src="assets/video/sol-commercial.mp4" type="video/mp4"></video><span class="tag tag--com">Commercial</span></div>
         <div class="soln__body">
           <svg class="scard__ic"><use href="#i-build"/></svg>
           <h3>Commercial Solar</h3>
@@ -260,7 +262,7 @@
 
   <!-- CTA -->
   <section class="cta" id="contact">
-    <div class="cta__bg"><img src="assets/img/cta.jpg?v=3" alt="" data-parallax="0.1"></div>
+    <div class="cta__bg"><video autoplay muted loop playsinline preload="none" poster="assets/img/cta-poster.jpg?v=18" data-parallax="0.1"><source src="assets/video/cta.mp4" type="video/mp4"></video></div>
     <div class="wrap cta__in">
       <p class="eyebrow reveal"><span class="dot"></span>Ready to switch?</p>
       <h2 class="display reveal-lines">Let's build a cleaner, <em>brighter Bikaner.</em></h2>
@@ -302,6 +304,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="js/main.js?v=8"></script>
+<script src="js/main.js?v=9"></script>
 </body>
 </html>

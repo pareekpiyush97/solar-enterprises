@@ -165,9 +165,9 @@
       gsap.set(el, { y: 32 });
     });
     $$('.reveal-img').forEach(function (el) {
-      var img = $('img', el);
+      var media = $('img, video', el);
       gsap.to(el, { opacity: 1, duration: 1, scrollTrigger: { trigger: el, start: 'top 85%' } });
-      if (img) gsap.to(img, { scale: 1, duration: 1.6, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 85%' } });
+      if (media) gsap.to(media, { scale: 1, duration: 1.6, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 85%' } });
     });
     $$('.reveal-lines').forEach(function (el) {
       gsap.set(el, { y: 26, opacity: 0 });
@@ -281,6 +281,21 @@
       types.forEach(function (x) { x.classList.remove('is-on'); }); b.classList.add('is-on'); kind = b.getAttribute('data-k'); compute();
     }); });
     compute();
+  })();
+
+  /* ---------------- lazy autoplay videos (in-view play / pause) ---------------- */
+  (function autovid() {
+    var vids = $$('video[autoplay]');
+    if (!vids.length) return;
+    if (reduce) { vids.forEach(function (v) { try { v.pause(); v.removeAttribute('autoplay'); } catch (e) {} }); return; }
+    if (!('IntersectionObserver' in window)) { vids.forEach(function (v) { v.play().catch(function () {}); }); return; }
+    var io = new IntersectionObserver(function (ents) {
+      ents.forEach(function (e) {
+        var v = e.target;
+        if (e.isIntersecting) { v.play().catch(function () {}); } else { v.pause(); }
+      });
+    }, { threshold: 0.2, rootMargin: '120px 0px' });
+    vids.forEach(function (v) { io.observe(v); });
   })();
 
   /* keep ScrollTrigger honest after images/fonts load */
