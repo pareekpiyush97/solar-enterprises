@@ -173,10 +173,9 @@ p{margin:0}
 .story__ceo{margin:28px 0 0;position:relative;max-width:400px;border-radius:var(--r-lg);overflow:hidden;
   background:linear-gradient(180deg,#fff,#f2ece1);border:1px solid var(--line);box-shadow:0 34px 66px -46px rgba(30,20,10,.42)}
 .story__ceo img{display:block;width:100%;height:auto}
-.story__ceo figcaption{position:absolute;left:0;right:0;bottom:0;padding:38px 22px 18px;
-  background:linear-gradient(180deg,transparent,rgba(18,10,3,.8))}
-.story__ceo figcaption strong{display:block;font-family:var(--serif);font-weight:500;font-size:22px;color:#fff}
-.story__ceo figcaption span{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--gold)}
+.story__ceo figcaption{padding:15px 22px 17px;background:#17100a}
+.story__ceo figcaption strong{display:block;font-family:var(--serif);font-weight:500;font-size:22px;color:#fff;line-height:1.15}
+.story__ceo figcaption span{display:block;margin-top:3px;font-size:12.5px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:#ffb347}
 @media (max-width:900px){.story__ceo{margin:26px auto 0}}
 
 /* solutions / work showcase */
