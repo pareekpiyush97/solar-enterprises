@@ -170,6 +170,8 @@ p{margin:0}
   margin:30px 0!important;line-height:1.1;letter-spacing:-.02em}
 .story__sign{color:var(--muted);font-size:14px;line-height:1.7}
 .story__sign strong{color:var(--amber);font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(18px,2vw,24px)}
+.story__body a{color:var(--gold);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(255,106,26,.35);transition:border-color .2s}
+.story__body a:hover{border-bottom-color:var(--gold)}
 .story__ceo{margin:28px 0 0;position:relative;max-width:400px;border-radius:var(--r-lg);overflow:hidden;
   background:linear-gradient(180deg,#fff,#f2ece1);border:1px solid var(--line);box-shadow:0 34px 66px -46px rgba(30,20,10,.42)}
 .story__ceo img{display:block;width:100%;height:auto}
