@@ -268,6 +268,23 @@ p{margin:0}
 .voices__nav .v-prev{transform:rotate(180deg)}
 
 /* cta (dark band for contrast) */
+/* faq */
+.faq{padding:var(--sec) 0;background:var(--cream)}
+.faq__in{display:grid;grid-template-columns:.72fr 1.28fr;gap:clamp(28px,5vw,72px);align-items:start}
+.faq__head h2{font-size:clamp(28px,3.6vw,48px)}
+.faq__note{margin-top:18px;color:var(--muted);font-size:14.5px}
+.faq__note a{color:var(--gold);font-weight:600}
+.faq__list{border-top:1px solid var(--line)}
+.faq__item{border-bottom:1px solid var(--line)}
+.faq__item summary{list-style:none;cursor:pointer;padding:20px 44px 20px 0;position:relative;
+  font-family:var(--serif);font-size:clamp(17px,1.5vw,21px);font-weight:500;color:var(--ink);transition:color .2s}
+.faq__item summary::-webkit-details-marker{display:none}
+.faq__item summary:hover{color:var(--gold)}
+.faq__item summary::after{content:"+";position:absolute;right:8px;top:19px;font-size:24px;line-height:1;color:var(--gold);transition:transform .3s var(--ease)}
+.faq__item[open] summary::after{content:"–"}
+.faq__a{padding:0 0 22px}
+.faq__a p{color:var(--muted);font-size:15.5px;line-height:1.72;max-width:64ch;margin:0}
+@media (max-width:900px){.faq__in{grid-template-columns:1fr;gap:26px}}
 .cta{position:relative;padding-block:clamp(66px,8vw,108px);overflow:hidden;isolation:isolate;text-align:center;background:var(--dark)}
 .cta__bg{position:absolute;inset:-8% 0;z-index:-2}
 .cta__bg img,.cta__bg video{width:100%;height:100%;object-fit:cover;opacity:.4;display:block}
