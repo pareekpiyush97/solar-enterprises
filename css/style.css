@@ -499,3 +499,7 @@ p{margin:0}
 .ios-hint.show{opacity:1;transform:translateX(-50%) translateY(0);pointer-events:auto}
 .ios-hint b{color:var(--gold)}
 .ios-hint button{margin-top:10px;background:rgba(255,255,255,.14);color:#fff;border:0;border-radius:9px;padding:7px 13px;font:inherit;font-weight:600;cursor:pointer}
+
+/* Hero brand nameplate (between eyebrow and headline) */
+.hero__brand{font-family:var(--serif);font-weight:500;font-size:clamp(21px,2.5vw,31px);
+  letter-spacing:-.015em;color:var(--ink);line-height:1.06;margin:14px 0 6px}
