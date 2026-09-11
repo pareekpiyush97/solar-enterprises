@@ -1,14 +1,29 @@
 {
+  "id": "/",
   "name": "Solar Energy Enterprises",
   "short_name": "Solar Energy",
-  "description": "Premium domestic & commercial solar in Bikaner, Rajasthan.",
-  "start_url": "/",
+  "description": "Premium domestic & commercial solar in Bikaner, Rajasthan — design, installation, subsidy support & service.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
   "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "any",
+  "lang": "en-IN",
+  "dir": "ltr",
   "background_color": "#ffffff",
   "theme_color": "#ff6a1a",
+  "categories": ["business", "utilities"],
   "icons": [
     { "src": "/assets/img/icon-32.png", "sizes": "32x32", "type": "image/png" },
     { "src": "/assets/img/icon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/assets/img/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/img/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
     { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any" }
+  ],
+  "shortcuts": [
+    { "name": "WhatsApp us", "short_name": "WhatsApp", "url": "https://wa.me/919829641110", "description": "Chat with Solar Energy Enterprises on WhatsApp" },
+    { "name": "Residential Solar", "short_name": "Residential", "url": "/residential.html" },
+    { "name": "Commercial Solar", "short_name": "Commercial", "url": "/commercial.html" }
   ]
 }

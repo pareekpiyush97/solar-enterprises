@@ -462,3 +462,40 @@ p{margin:0}
 .sup-foot__in{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 .sup-foot a:hover{color:var(--gold)}
 @media (max-width:820px){.sup__wrap{grid-template-columns:1fr;gap:36px}}
+
+/* ============ PWA: floating WhatsApp + Install ============ */
+.wa-fab{position:fixed;right:clamp(16px,3vw,26px);bottom:calc(clamp(16px,3vw,26px) + env(safe-area-inset-bottom,0px));
+  z-index:900;display:inline-flex;align-items:center;gap:0;height:58px;border-radius:999px;
+  background:#25d366;color:#fff;text-decoration:none;padding:0 15px;
+  box-shadow:0 12px 30px rgba(9,124,60,.34),0 3px 8px rgba(0,0,0,.16);
+  transition:transform .28s var(--ease),box-shadow .28s var(--ease),gap .28s var(--ease),padding .28s var(--ease)}
+.wa-fab svg{width:30px;height:30px;flex:0 0 auto;display:block}
+.wa-fab__label{max-width:0;overflow:hidden;white-space:nowrap;font-family:var(--sans);font-weight:600;
+  font-size:15px;letter-spacing:-.01em;opacity:0;transition:max-width .3s var(--ease),opacity .25s var(--ease),margin .3s var(--ease)}
+.wa-fab::after{content:"";position:absolute;inset:0;border-radius:999px;box-shadow:0 0 0 0 rgba(37,211,102,.55);
+  animation:waPulse 2.6s var(--ease) infinite;z-index:-1}
+@media (hover:hover){
+  .wa-fab:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(9,124,60,.42),0 5px 12px rgba(0,0,0,.2)}
+  .wa-fab:hover .wa-fab__label{max-width:180px;opacity:1;margin-left:10px;margin-right:4px}
+}
+@keyframes waPulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+
+.pwa-install{position:fixed;left:clamp(16px,3vw,26px);bottom:calc(clamp(16px,3vw,26px) + env(safe-area-inset-bottom,0px));
+  z-index:900;display:inline-flex;align-items:center;gap:9px;height:48px;padding:0 18px;border:0;cursor:pointer;
+  border-radius:999px;background:var(--flame);color:#fff;font-family:var(--sans);font-weight:600;font-size:14px;letter-spacing:-.01em;
+  box-shadow:0 12px 30px rgba(214,63,22,.32),0 3px 8px rgba(0,0,0,.16);
+  transform:translateY(14px);opacity:0;pointer-events:none;transition:transform .35s var(--ease),opacity .35s var(--ease),box-shadow .28s var(--ease)}
+.pwa-install svg{width:19px;height:19px;flex:0 0 auto}
+.pwa-install.show{transform:translateY(0);opacity:1;pointer-events:auto}
+@media (hover:hover){.pwa-install:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(214,63,22,.4)}}
+@media (max-width:560px){.pwa-install{height:44px;font-size:13px;padding:0 15px}.wa-fab{height:54px}.wa-fab svg{width:28px;height:28px}}
+@media (prefers-reduced-motion:reduce){.wa-fab::after{animation:none}.wa-fab,.pwa-install{transition:none}}
+
+/* iOS install hint sheet */
+.ios-hint{position:fixed;left:50%;bottom:20px;transform:translateX(-50%) translateY(20px);z-index:950;
+  max-width:min(360px,92vw);background:var(--dark);color:#fff;border-radius:16px;padding:16px 18px;
+  box-shadow:0 20px 50px rgba(0,0,0,.4);font-family:var(--sans);font-size:14px;line-height:1.5;opacity:0;
+  pointer-events:none;transition:opacity .3s var(--ease),transform .3s var(--ease)}
+.ios-hint.show{opacity:1;transform:translateX(-50%) translateY(0);pointer-events:auto}
+.ios-hint b{color:var(--gold)}
+.ios-hint button{margin-top:10px;background:rgba(255,255,255,.14);color:#fff;border:0;border-radius:9px;padding:7px 13px;font:inherit;font-weight:600;cursor:pointer}
