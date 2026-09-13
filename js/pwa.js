@@ -43,17 +43,25 @@
 
   /* ---- iOS Safari has no beforeinstallprompt: show a short how-to ---- */
   var isIos = /iphone|ipad|ipod/i.test(navigator.userAgent);
-  var isSafari = isIos && !/crios|fxios|edgios/i.test(navigator.userAgent);
 
+  var iosHintTimer = null;
   function showIosHint() {
     var el = document.querySelector('.ios-hint');
     if (!el) return;
     el.classList.add('show');
-    setTimeout(function () { el.classList.remove('show'); }, 9000);
+    clearTimeout(iosHintTimer);
+    iosHintTimer = setTimeout(function () { el.classList.remove('show'); }, 13000);
   }
 
-  if (installBtn && isSafari && !standalone) {
-    installBtn.classList.add('show'); // let iOS users tap to see instructions
+  if (installBtn && isIos && !standalone) {
+    installBtn.classList.add('show'); // show on all iOS browsers; tap reveals the how-to
+    // gently show the guide once per device
+    try {
+      if (!localStorage.getItem('iosHintSeen')) {
+        setTimeout(showIosHint, 3500);
+        localStorage.setItem('iosHintSeen', '1');
+      }
+    } catch (e) {}
   }
 
   document.addEventListener('click', function (e) {

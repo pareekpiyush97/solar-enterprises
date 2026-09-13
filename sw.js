@@ -1,5 +1,5 @@
 /* Solar Energy Enterprises — service worker (PWA install + light offline) */
-const VERSION = 'see-v1';
+const VERSION = 'see-v2';
 const STATIC_CACHE = 'static-' + VERSION;
 const PAGE_CACHE = 'pages-' + VERSION;
 
@@ -9,8 +9,9 @@ const PRECACHE = [
   '/index.html',
   '/residential.html',
   '/commercial.html',
-  '/css/style.css?v=24',
+  '/css/style.css?v=29',
   '/js/main.js?v=9',
+  '/js/pwa.js?v=2',
   '/favicon.svg',
   '/assets/img/icon-192.png',
   '/assets/img/icon-512.png',
