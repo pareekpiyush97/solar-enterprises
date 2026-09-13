@@ -22,7 +22,7 @@
     { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any" }
   ],
   "shortcuts": [
-    { "name": "WhatsApp us", "short_name": "WhatsApp", "url": "https://wa.me/919829641110", "description": "Chat with Solar Energy Enterprises on WhatsApp" },
+    { "name": "WhatsApp us", "short_name": "WhatsApp", "url": "https://wa.me/918504035110", "description": "Chat with Solar Energy Enterprises on WhatsApp" },
     { "name": "Residential Solar", "short_name": "Residential", "url": "/residential.html" },
     { "name": "Commercial Solar", "short_name": "Commercial", "url": "/commercial.html" }
   ]

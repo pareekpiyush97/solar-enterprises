@@ -10,7 +10,7 @@
      3) Paste the Client ID below. Until then, a secure email fallback is used. */
   var CONFIG = {
     clientId: '',                 // <-- paste your Google OAuth Client ID here
-    whatsapp: '919829641110'      // complaints WhatsApp (country code + number, no +)
+    whatsapp: '918504035110'      // complaints WhatsApp (country code + number, no +)
   };
 
   var $ = function (s) { return document.querySelector(s); };
