@@ -44,7 +44,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-<link rel="stylesheet" href="css/style.css?v=30">
+<link rel="stylesheet" href="css/style.css?v=31">
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
@@ -88,7 +88,7 @@
       <a href="#about" data-cursor="hover">About</a>
       <a href="#story" data-cursor="hover">Story</a>
       <a href="#projects" data-cursor="hover">Projects</a>
-      <a href="#services" data-cursor="hover">Solutions</a>
+      <a href="#services" data-cursor="hover">Services</a>
       <a href="#process" data-cursor="hover">Process</a>
       <a href="#voices" data-cursor="hover">Clients</a>
       <a href="support.html" data-cursor="hover">Support</a>
@@ -101,7 +101,7 @@
 <!-- mobile menu -->
 <div class="menu" id="menu" aria-hidden="true">
   <nav class="menu__links">
-    <a href="#about">About</a><a href="#story">Story</a><a href="#projects">Projects</a><a href="#services">Solutions</a>
+    <a href="#about">About</a><a href="#story">Story</a><a href="#projects">Projects</a><a href="#services">Services</a>
     <a href="#process">Process</a><a href="#voices">Clients</a><a href="support.html">Support</a><a href="#contact">Contact</a>
   </nav>
     <a class="menu__cta" href="#contact"><span>Get a Quote</span><svg class="ic"><use href="#i-arrow"/></svg></a>
@@ -280,13 +280,13 @@
   <section class="svc" id="services">
     <div class="svc__head wrap">
       <div>
-        <p class="eyebrow"><span class="dot"></span>Solutions &amp; pricing</p>
-        <h2 class="display">Solar for home &amp; business.</h2>
+        <p class="eyebrow"><span class="dot"></span>Our Services</p>
+        <h2 class="display">Solar across <em>three levels.</em></h2>
       </div>
     </div>
     <div class="wrap svc__grid">
       <a class="soln" href="residential.html" data-cursor="hover">
-        <div class="soln__media"><video class="soln__vid" autoplay muted loop playsinline preload="none" poster="assets/img/sol-residential-poster.jpg?v=24"><source src="assets/video/sol-residential.mp4?v=21" type="video/mp4"></video><span class="tag tag--res">Residential</span></div>
+        <div class="soln__media"><video class="soln__vid" autoplay muted loop playsinline preload="none" poster="assets/img/sol-residential-poster.jpg?v=24"><source src="assets/video/sol-residential.mp4?v=21" type="video/mp4"></video><span class="tag tag--res">Level 1 · Residential</span></div>
         <div class="soln__body">
           <svg class="scard__ic"><use href="#i-home"/></svg>
           <h3>Residential Solar</h3>
@@ -300,7 +300,7 @@
         </div>
       </a>
       <a class="soln" href="commercial.html" data-cursor="hover">
-        <div class="soln__media"><video class="soln__vid" autoplay muted loop playsinline preload="none" poster="assets/img/sol-commercial-poster.jpg?v=24"><source src="assets/video/sol-commercial.mp4?v=21" type="video/mp4"></video><span class="tag tag--com">Commercial</span></div>
+        <div class="soln__media"><video class="soln__vid" autoplay muted loop playsinline preload="none" poster="assets/img/sol-commercial-poster.jpg?v=24"><source src="assets/video/sol-commercial.mp4?v=21" type="video/mp4"></video><span class="tag tag--com">Level 2 · Commercial</span></div>
         <div class="soln__body">
           <svg class="scard__ic"><use href="#i-build"/></svg>
           <h3>Commercial Solar</h3>
@@ -313,11 +313,39 @@
           </div>
         </div>
       </a>
+      <a class="soln" href="#svc-contact" data-cursor="hover">
+        <div class="soln__media soln__media--ent">
+          <div class="ent__badge"><strong>300 MW</strong><span>EPC delivered</span></div>
+          <span class="tag tag--ent">Level 3 · Enterprise</span>
+        </div>
+        <div class="soln__body">
+          <svg class="scard__ic"><use href="#i-build"/></svg>
+          <h3>Enterprise Solar</h3>
+          <p class="scard__spec">Utility-scale · EPC · MW power plants</p>
+          <p>Turnkey EPC for large-scale power projects, government tenders and bulk supply — backed by our 300 MW track record.</p>
+          <ul class="soln__list"><li>Retailer supply</li><li>Semi-Govt &amp; Govt tenders</li><li>Power plants (EPC)</li><li>Ground-mount MW</li></ul>
+          <div class="soln__foot">
+            <div class="scard__price"><span>Track record</span><strong>300 MW</strong><em>EPC executed</em></div>
+            <span class="soln__go">Contact us <svg class="ic"><use href="#i-arrow"/></svg></span>
+          </div>
+        </div>
+      </a>
     </div>
     <div class="wrap svc__note">
       <span><svg class="ic"><use href="#i-check"/></svg> 6-month on-site support after installation</span>
       <span><svg class="ic"><use href="#i-check"/></svg> Approved by State &amp; Central Government</span>
       <a class="btn btn--gold magnetic" href="#contact" data-cursor="hover"><span>Talk to our team</span><svg class="ic"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="wrap svc__contact" id="svc-contact">
+      <div class="svc__contact-txt">
+        <p class="eyebrow"><span class="dot"></span>Contact us</p>
+        <h3>Enterprise, tenders &amp; power projects</h3>
+        <p>For utility-scale EPC, government &amp; semi-govt tenders, power plants and retailer supply — reach our projects desk directly.</p>
+      </div>
+      <a class="svc__num" href="tel:+916376728054" data-cursor="hover">
+        <span>Projects &amp; Tenders desk</span>
+        <strong>+91 63767 28054</strong>
+      </a>
     </div>
   </section>
 
@@ -439,7 +467,7 @@
         <a class="brand" href="#top"><span class="brand__mark"><svg viewBox="0 0 128 128"><use href="#i-mark"/></svg></span><span class="brand__txt">Solar Energy<br><em>Enterprises</em></span></a>
         <p>Clean energy, honestly engineered. Powering homes and businesses across Bikaner and Rajasthan since 2018.</p>
       </div>
-      <div class="foot__col"><h4>Solutions</h4><a href="residential.html">Residential Solar</a><a href="residential.html">Domestic 3–20 KW</a><a href="commercial.html">Commercial Solar</a><a href="commercial.html">Commercial 5–200 KW</a></div>
+      <div class="foot__col"><h4>Services</h4><a href="residential.html">Residential Solar</a><a href="residential.html">Domestic 3–20 KW</a><a href="commercial.html">Commercial Solar</a><a href="commercial.html">Commercial 5–200 KW</a></div>
       <div class="foot__col"><h4>Company</h4><a href="#about">About us</a><a href="#story">Our story</a><a href="#process">Process</a><a href="#voices">Clients</a><a href="support.html">Register a complaint</a></div>
       <div class="foot__col foot__contact"><h4>Get in touch</h4>
         <a href="tel:+918504035110">+91 85040 35110</a>
