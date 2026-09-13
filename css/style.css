@@ -599,3 +599,9 @@ a,button,input,select,textarea{-webkit-tap-highlight-color:rgba(0,0,0,0)}
 .svc__num span{font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:rgba(255,255,255,.55)}
 .svc__num strong{font-family:var(--serif);font-weight:500;font-size:clamp(24px,2.6vw,32px);color:#fff}
 @media(max-width:560px){.svc__contact{flex-direction:column;align-items:flex-start}.svc__num{width:100%;align-items:flex-start}}
+
+/* Services contact: action buttons (no number shown) */
+.svc__contact-cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.svc__contact .btn--dark-line{border-color:rgba(255,255,255,.32);color:#fff}
+.svc__contact .btn--dark-line:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+@media(max-width:560px){.svc__contact-cta{width:100%}.svc__contact-cta .btn{flex:1;justify-content:center}}
