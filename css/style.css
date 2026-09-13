@@ -628,3 +628,8 @@ a,button,input,select,textarea{-webkit-tap-highlight-color:rgba(0,0,0,0)}
   border-radius:14px;font-family:var(--mono);font-size:clamp(11px,1.15vw,13px);letter-spacing:.04em;text-align:center}
 @media(max-width:900px){.trust__grid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.trust__grid{grid-template-columns:1fr}}
+
+/* Readability on dark navy bands: brighter eyebrows + footer wordmark accent */
+.epc .eyebrow,.cta .eyebrow{color:#6bb0ea}
+.epc .eyebrow .dot,.cta .eyebrow .dot{background:#6bb0ea;box-shadow:0 0 0 4px rgba(107,176,234,.18)}
+.foot .brand__txt em{color:#6bb0ea}
