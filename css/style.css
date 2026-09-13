@@ -638,3 +638,6 @@ a,button,input,select,textarea{-webkit-tap-highlight-color:rgba(0,0,0,0)}
 /* Service cards: level label (media removed, text-only cards) */
 .soln__level{font-family:var(--mono);text-transform:uppercase;letter-spacing:.12em;font-size:11px;font-weight:600;color:var(--gold);margin-bottom:2px}
 .soln__body{padding-top:clamp(26px,2.8vw,34px)}
+
+/* Hero image: desktop only (hidden on mobile/tablet stacked layout) */
+@media(max-width:960px){.hero__fig{display:none}}
