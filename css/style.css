@@ -70,9 +70,9 @@ p{margin:0}
 .ic{width:1em;height:1em;fill:none;stroke:currentColor}
 
 /* nav */
-.nav{position:fixed;top:0;left:0;width:100%;z-index:900;padding:16px 0;
+.nav{position:fixed;top:0;left:0;width:100%;z-index:900;padding:16px 0;padding-top:max(16px,env(safe-area-inset-top,0px));
   transition:padding .4s var(--ease),background .4s,box-shadow .4s;border-bottom:1px solid transparent}
-.nav.is-stuck{padding:10px 0;background:rgba(255,255,255,.82);-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4);
+.nav.is-stuck{padding:10px 0;padding-top:max(10px,env(safe-area-inset-top,0px));background:rgba(255,255,255,.82);-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4);
   border-bottom-color:var(--line-2);box-shadow:0 6px 30px -20px rgba(20,15,10,.4)}
 .nav__in{display:flex;align-items:center;gap:32px}
 .brand{display:flex;align-items:center;gap:12px}
@@ -358,13 +358,12 @@ p{margin:0}
 @media (max-width:720px){
   .nav__in{position:relative;display:flex;align-items:center;justify-content:space-between}
   .nav__links{display:none}
-  .burger{display:flex;order:0}
-  .nav .brand{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);gap:8px}
-  .nav .brand__mark{width:36px;height:36px}
-  .nav .brand__mark svg{width:36px;height:36px}
-  .nav .brand__txt{display:block;font-size:10px;line-height:1.12;letter-spacing:.02em}
-  .nav .btn--gold{display:inline-flex;order:1;padding:9px 13px;font-size:12px}
-  .nav .btn--gold .ic{display:none}
+  .nav .brand{order:0;gap:10px}                 /* logo -> left (menu's old spot) */
+  .nav .brand__mark{width:40px;height:40px}
+  .nav .brand__mark svg{width:40px;height:40px}
+  .nav .brand__txt{display:block;font-size:11px;line-height:1.12;letter-spacing:.03em}
+  .nav .btn--gold{display:none}                 /* Get a Quote replaced by the menu on phone */
+  .burger{display:flex;order:1;margin-left:auto} /* menu -> right (Get-a-Quote's old spot) */
   .hero__mini{flex-wrap:wrap;gap:20px}
   .svc__head{align-items:flex-start;flex-direction:column}
   .proc__steps{grid-template-columns:1fr}
@@ -500,9 +499,13 @@ p{margin:0}
 .ios-hint b{color:var(--gold)}
 .ios-hint button{margin-top:10px;background:rgba(255,255,255,.14);color:#fff;border:0;border-radius:9px;padding:7px 13px;font:inherit;font-weight:600;cursor:pointer}
 
-/* Hero brand nameplate (between eyebrow and headline) */
-.hero__brand{font-family:var(--serif);font-weight:500;font-size:clamp(21px,2.5vw,31px);
-  letter-spacing:-.015em;color:var(--ink);line-height:1.06;margin:14px 0 6px}
+/* Hero brand nameplate (between eyebrow and headline) — premium lockup */
+.hero__brand{display:flex;align-items:center;gap:14px;font-family:var(--serif);font-weight:500;
+  font-size:clamp(21px,2.6vw,32px);letter-spacing:-.015em;color:var(--ink);line-height:1.05;margin:16px 0 10px}
+.hero__brand em{font-style:italic;background:var(--flame);-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:var(--amber)}
+.hero__brand-rule{width:36px;height:2px;border-radius:2px;background:var(--flame);flex:none}
+@media (max-width:520px){.hero__brand{gap:11px}.hero__brand-rule{width:26px}}
 
 /* ===== Leadership pair (Founder + CEO) ===== */
 .story__leaders{grid-column:1 / -1;margin-top:clamp(30px,4vw,52px);
@@ -524,4 +527,14 @@ a,button,input,select,textarea{-webkit-tap-highlight-color:rgba(0,0,0,0)}
 @supports (-webkit-touch-callout:none){
   input,select,textarea{font-size:16px}          /* stop Safari zoom-on-focus */
   .hero__vid,.soln__vid,.about__vid,.cta__bg video{transform:translateZ(0)} /* smoother video paint on iOS */
+}
+
+/* Get-a-Quote CTA inside the mobile menu (replaces the header button on phone) */
+.menu__cta{display:none}
+@media (max-width:720px){
+  .menu__cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;margin:8px 0 22px;
+    width:100%;padding:16px 22px;border-radius:999px;background:var(--flame);color:#fff;
+    font-family:var(--sans);font-weight:600;font-size:16px;letter-spacing:-.01em;
+    box-shadow:0 14px 30px -14px rgba(255,106,26,.85)}
+  .menu__cta svg{width:18px;height:18px}
 }
