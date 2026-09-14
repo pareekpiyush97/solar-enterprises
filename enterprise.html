@@ -30,7 +30,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=40">
+<link rel="stylesheet" href="css/style.css?v=41">
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
@@ -140,8 +140,8 @@
       <div class="psec__head">
         <p class="eyebrow reveal"><span class="dot"></span>Submit Project / Tender Requirement</p>
         <h2 class="display reveal-lines">Project inquiry <em>form.</em></h2>
-        <p class="reveal">Fields marked <span class="req-star">*</span> are required. On submit, your details open in
-          WhatsApp to our projects desk so nothing is lost.</p>
+        <p class="reveal">Fields marked <span class="req-star">*</span> are required. Your inquiry is sent securely to
+          our team — you'll see a confirmation right here.</p>
       </div>
 
       <form class="inq" id="inqForm" novalidate>
@@ -216,14 +216,16 @@
           <span>I confirm the information provided is accurate and that I am authorised to submit this project / tender inquiry.</span></label>
 
         <button class="btn btn--gold btn--lg magnetic inq__submit" type="submit"><span>Submit inquiry</span><svg class="ic"><use href="#i-arrow"/></svg></button>
+        <p class="inq__err" id="inqErr" hidden>Sorry — your inquiry couldn't be sent just now. Please check your connection and try again in a moment.</p>
         <p class="inq__note">Submitting this form does not constitute acceptance of the project or confirmation of tender eligibility.</p>
       </form>
 
       <div class="inq__thanks" id="inqThanks" hidden>
         <span class="inq__thanks-ic"><svg class="ic"><use href="#i-check"/></svg></span>
-        <h3>Thank you — your inquiry has been prepared.</h3>
-        <p>Please press <b>send</b> in WhatsApp to deliver it to our projects desk. Our team will review the project /
-          tender details and contact you regarding technical suitability, documentation and next steps.</p>
+        <h3>Thank you — your inquiry has been received.</h3>
+        <p>Our team will review the project or tender details and contact you regarding technical suitability,
+          documentation and the next steps. Submission of this form does not constitute acceptance of the project
+          or confirmation of tender eligibility.</p>
         <a class="btn btn--line magnetic" href="index.html" data-cursor="hover"><span>Back to home</span></a>
       </div>
     </div>
@@ -252,7 +254,8 @@
 <script>
 (function(){
   var form=document.getElementById('inqForm'); if(!form) return;
-  var WA='918504035110';
+  var ENDPOINT='https://formsubmit.co/ajax/purohitrishb5@gmail.com';
+  var btn=form.querySelector('.inq__submit'), bt=btn?btn.querySelector('span'):null, err=document.getElementById('inqErr');
   var g=function(id){var el=document.getElementById(id);return el?el.value.trim():'';};
   form.addEventListener('submit',function(e){
     e.preventDefault();
@@ -260,23 +263,36 @@
     if(!form.checkValidity()){ form.reportValidity(); return; }
     if(!scope.length){ alert('Please select at least one required scope of work.'); return; }
     var pref=[].slice.call(form.querySelectorAll('input[name="pref"]:checked')).map(function(c){return c.value;});
-    var L=[];
-    L.push('*EPC / Project Inquiry — Solar Energy Enterprises*'); L.push('');
-    L.push('Organisation: '+g('org')+' ('+g('orgtype')+')');
-    L.push('Contact: '+g('person')+(g('desig')?', '+g('desig'):''));
-    L.push('Phone: '+g('phone')+(g('email')?'  |  Email: '+g('email'):'')); L.push('');
-    L.push('Project/Tender: '+g('project')+(g('ref')?'  (Ref: '+g('ref')+')':''));
-    if(g('client')) L.push('Client/Authority: '+g('client'));
-    L.push('Location: '+g('location'));
-    var meta=[]; if(g('ptype'))meta.push('Type: '+g('ptype')); if(g('capacity'))meta.push('Capacity: '+g('capacity')); if(g('deadline'))meta.push('Deadline: '+g('deadline'));
-    if(meta.length) L.push(meta.join('  |  '));
-    L.push('Scope: '+scope.join(', ')); L.push('');
-    L.push('Requirement: '+g('desc'));
-    if(pref.length) L.push('Preferred contact: '+pref.join(', '));
-    if(g('msg')) L.push('Message: '+g('msg'));
-    window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(L.join('\n')),'_blank','noopener');
-    form.hidden=true;
-    var t=document.getElementById('inqThanks'); t.hidden=false; t.scrollIntoView({block:'center'});
+    if(err) err.hidden=true;
+    if(btn) btn.disabled=true; if(bt) bt.textContent='Sending…';
+    var payload={
+      _subject:'New EPC / Project Inquiry — Solar Energy Enterprises',
+      _template:'table', _captcha:'false',
+      'Organisation':g('org')+' ('+g('orgtype')+')',
+      'Contact person':g('person')+(g('desig')?', '+g('desig'):''),
+      'Phone':g('phone'),
+      'Email':g('email')||'—',
+      'Project / Tender':g('project')+(g('ref')?' (Ref: '+g('ref')+')':''),
+      'Issuing authority / client':g('client')||'—',
+      'Location':g('location'),
+      'Project type':g('ptype')||'—',
+      'Capacity':g('capacity')||'—',
+      'Deadline':g('deadline')||'—',
+      'Scope of work':scope.join(', '),
+      'Requirement':g('desc'),
+      'Preferred contact':pref.join(', ')||'—',
+      'Additional message':g('msg')||'—'
+    };
+    fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+      .then(function(r){ if(!r.ok) throw 0; return r.json(); })
+      .then(function(){
+        form.hidden=true;
+        var t=document.getElementById('inqThanks'); t.hidden=false; t.scrollIntoView({block:'center'});
+      })
+      .catch(function(){
+        if(btn) btn.disabled=false; if(bt) bt.textContent='Submit inquiry';
+        if(err) err.hidden=false;
+      });
   });
 })();
 </script>
