@@ -699,3 +699,70 @@ a,button,input,select,textarea{-webkit-tap-highlight-color:rgba(0,0,0,0)}
 .inq__err{margin-top:14px;font-size:14px;font-weight:600;color:#d64d4d}
 
 @media(max-width:860px){.story__leaders{grid-template-columns:1fr 1fr}} /* story__leaders 3col tablet */
+
+/* ============================================================
+   SEO PAGES — price list + savings calculator  (v43)
+   ============================================================ */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ---- price / subsidy table ---- */
+.ptable{margin-top:clamp(24px,3vw,40px);background:var(--paper);border:1px solid var(--line);
+  border-radius:var(--r-lg);overflow:hidden;box-shadow:0 22px 60px rgba(14,31,51,.07)}
+.ptable__scroll,.ptable{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.ptable table{width:100%;min-width:660px;border-collapse:collapse;font-family:var(--sans)}
+.ptable thead th{background:var(--dark);color:#fff;font-size:12.5px;font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;text-align:left;padding:16px 18px;white-space:nowrap}
+.ptable tbody th,.ptable tbody td{padding:16px 18px;border-top:1px solid var(--line-2);
+  font-size:15px;color:var(--ink-soft);text-align:left;vertical-align:middle}
+.ptable tbody th{font-family:var(--mono);font-weight:600;color:var(--ink);white-space:nowrap}
+.ptable tbody td b{font-weight:600;color:var(--ink)}
+.ptable tbody tr:hover{background:var(--panel)}
+.ptable tr.is-featured{background:rgba(21,90,158,.06)}
+.ptable tr.is-featured:hover{background:rgba(21,90,158,.09)}
+.ptable__tag{display:inline-block;margin-left:8px;padding:3px 9px;border-radius:999px;
+  background:var(--flame);color:#fff;font-family:var(--sans);font-size:10.5px;font-weight:600;
+  letter-spacing:.05em;text-transform:uppercase;vertical-align:middle}
+.ptable__foot{margin-top:18px;max-width:78ch;font-size:14.5px;line-height:1.7;color:var(--muted)}
+.ptable__foot a{color:var(--gold);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:560px){.ptable thead th,.ptable tbody th,.ptable tbody td{padding:13px 14px;font-size:14px}}
+
+/* ---- savings calculator ---- */
+.calc{margin-top:clamp(24px,3vw,40px);display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(18px,2.2vw,28px)}
+.calc__panel,.calc__out{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:clamp(22px,2.6vw,34px);box-shadow:0 22px 60px rgba(14,31,51,.07)}
+.calc__panel{display:flex;flex-direction:column}
+.calc__type{display:flex;gap:8px;margin-bottom:26px;flex-wrap:wrap}
+.calc__type button{appearance:none;cursor:pointer;padding:9px 18px;border-radius:999px;
+  border:1px solid var(--line);background:transparent;font-family:var(--sans);font-size:13.5px;
+  font-weight:600;color:var(--muted);transition:all .25s var(--ease)}
+.calc__type button:hover{border-color:var(--gold);color:var(--gold)}
+.calc__type button.is-on{background:var(--flame);border-color:transparent;color:#fff;
+  box-shadow:0 8px 20px rgba(21,90,158,.28)}
+.calc__label{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--faint)}
+.calc__big{display:block;margin:6px 0 20px;font-family:var(--serif);font-size:clamp(40px,5.4vw,60px);
+  line-height:1;color:var(--ink);font-weight:500}
+.calc__range{--fill:10%;appearance:none;width:100%;height:6px;border-radius:999px;outline:none;cursor:pointer;
+  background:linear-gradient(90deg,#155a9e 0 var(--fill),rgba(14,31,51,.13) var(--fill) 100%)}
+.calc__range::-webkit-slider-thumb{appearance:none;width:26px;height:26px;border-radius:50%;
+  background:var(--paper);border:3px solid #155a9e;cursor:grab;
+  box-shadow:0 4px 14px rgba(14,31,51,.22);transition:transform .2s var(--ease)}
+.calc__range::-webkit-slider-thumb:active{cursor:grabbing;transform:scale(1.12)}
+.calc__range::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--paper);
+  border:3px solid #155a9e;cursor:grab;box-shadow:0 4px 14px rgba(14,31,51,.22)}
+.calc__range:focus-visible{outline:2px solid var(--gold);outline-offset:6px}
+.calc__scale{display:flex;justify-content:space-between;margin-top:10px;
+  font-family:var(--mono);font-size:12px;color:var(--faint)}
+.calc__note{margin-top:auto;padding-top:22px;font-size:13.5px;line-height:1.65;color:var(--muted)}
+.calc__out{display:flex;flex-direction:column;gap:2px;background:var(--cream)}
+.calc__stat{display:flex;align-items:baseline;justify-content:space-between;gap:14px;
+  padding:14px 0;border-bottom:1px solid var(--line-2)}
+.calc__k{font-family:var(--sans);font-size:13.5px;font-weight:500;color:var(--muted)}
+.calc__stat strong{font-family:var(--mono);font-size:22px;font-weight:600;color:var(--ink);white-space:nowrap}
+.calc__stat--hero{border-bottom:0;margin-top:8px;padding:18px 20px;border-radius:var(--r);
+  background:var(--flame);box-shadow:0 12px 30px rgba(21,90,158,.26)}
+.calc__stat--hero .calc__k{color:rgba(255,255,255,.82)}
+.calc__stat--hero strong{color:#fff;font-size:26px}
+.calc__cta{margin-top:18px;width:100%;justify-content:center}
+@media(max-width:900px){.calc{grid-template-columns:1fr}}

@@ -247,8 +247,8 @@
     var bill = $('#bill'); if (!bill) return;
     var billOut = $('#billOut'), types = $$('.calc__type button');
     var factor = { res: 1, com: 1.05, ind: 1.1 }, kind = 'res';
-    var out = { save25: $('#save25'), saveMo: $('#saveMo'), sysKw: $('#sysKw'), payback: $('#payback'), co2: $('#co2') };
-    var cur = { save25: 0, saveMo: 0, sysKw: 0, payback: 0, co2: 0 };
+    var out = { save25: $('#save25'), saveMo: $('#saveMo'), sysKw: $('#sysKw'), payback: $('#payback'), co2: $('#co2'), subsidy: $('#subsidyOut') };
+    var cur = { save25: 0, saveMo: 0, sysKw: 0, payback: 0, co2: 0, subsidy: 0 };
     var fmt = function (n) { return Math.round(n).toLocaleString('en-IN'); };
     function set(id, val, prefixDec) {
       var el = out[id]; if (!el) return;
@@ -264,12 +264,20 @@
       bill.style.setProperty('--fill', pct + '%');
       billOut.textContent = '₹' + fmt(b);
       var units = b / 8;                              // ~₹8 per unit
-      var kw = Math.max(1, units / (30 * 4.6 * 0.78) * factor[kind]); // sun hrs & derate
-      var cost = kw * 62000;                          // ₹/kW installed
+      var kw = Math.max(1, (units / 120) * factor[kind]); // ~120 units/kW/month in Rajasthan
+      // installed ₹/kW, tiered to match the published price list
+      var rate = kw >= 10 ? 55000 : kw >= 5 ? 57000 : 60000;
+      var gross = kw * rate;
+      // PM Surya Ghar: ₹30k/kW for the first 2 kW + ₹18k for the 3rd, capped at ₹78k. Residential only.
+      var subsidy = kind === 'res'
+        ? Math.min(78000, Math.min(kw, 2) * 30000 + (kw > 2 ? 18000 : 0))
+        : 0;
+      var cost = Math.max(0, gross - subsidy);
       var moSave = b * 0.9;
       var payback = cost / (moSave * 12);
       var save25 = moSave * 12 * 25 - cost;
       var co2 = kw * 1.4;                             // t CO2 / yr
+      set('subsidy', subsidy);
       set('sysKw', Math.round(kw * 10) / 10, true);
       set('saveMo', moSave);
       set('payback', Math.round(payback * 10) / 10, true);
