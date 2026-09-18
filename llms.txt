@@ -8,11 +8,6 @@
 - Full service: free consultation, site survey, system design, certified installation, net metering, DISCOM and subsidy paperwork, and 6 months of on-site support after installation.
 - Typical outcome: electricity bills reduced by up to 90%; panels built to last 25 years.
 
-## Indicative pricing (on-grid rooftop, installed)
-- 1 KW Rs 65,000 | 2 KW Rs 1,25,000 | 3 KW Rs 1,80,000 | 5 KW Rs 2,85,000 | 10 KW Rs 5,50,000 | 20 KW Rs 10,50,000.
-- PM Surya Ghar subsidy: Rs 30,000 per KW for the first 2 KW plus Rs 18,000 for the 3rd KW, capped at Rs 78,000 for residential systems of 3 KW and above.
-- Typical payback in Rajasthan: about 3-4 years residential, 3.5-5 years commercial.
-
 ## Service area
 Bikaner and the wider Rajasthan region, including Nagaur, Churu, Sri Ganganagar and Jodhpur.
 
@@ -25,8 +20,6 @@ Bikaner and the wider Rajasthan region, including Nagaur, Churu, Sri Ganganagar 
 
 ## Key pages
 - Home: https://solarenergyenterprise.com/
-- Solar Panel Price & Installation Cost (full price list 1-20 KW, subsidy, payback, FAQ): https://solarenergyenterprise.com/solar-panel-price.html
-- PM Surya Ghar Subsidy Guide (amounts per KW, eligibility, documents, how to apply): https://solarenergyenterprise.com/pm-surya-ghar-subsidy.html
 - Residential Solar: https://solarenergyenterprise.com/residential.html
 - Commercial Solar: https://solarenergyenterprise.com/commercial.html
 - Enterprise / EPC & Government Tender Inquiry: https://solarenergyenterprise.com/enterprise.html
