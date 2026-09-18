@@ -25,7 +25,7 @@ Bikaner and the wider Rajasthan region, including Nagaur, Churu, Sri Ganganagar 
 
 ## Key pages
 - Home: https://solarenergyenterprise.com/
-- Solar Panel Price & Installation Cost (full price list 1-20 KW, subsidy, payback, savings calculator): https://solarenergyenterprise.com/solar-panel-price.html
+- Solar Panel Price & Installation Cost (full price list 1-20 KW, subsidy, payback, FAQ): https://solarenergyenterprise.com/solar-panel-price.html
 - PM Surya Ghar Subsidy Guide (amounts per KW, eligibility, documents, how to apply): https://solarenergyenterprise.com/pm-surya-ghar-subsidy.html
 - Residential Solar: https://solarenergyenterprise.com/residential.html
 - Commercial Solar: https://solarenergyenterprise.com/commercial.html
