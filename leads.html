@@ -97,12 +97,59 @@ function signInScreen(msg){
     <h2>Solar Energy Enterprises</h2>
     <p>Lead portal. Access is limited to approved accounts.</p>
     ${msg ? `<div class="err">${esc(msg)}</div>` : ""}
+    <div style="text-align:left">
+      <label for="em" style="display:block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-bottom:6px">Your email</label>
+      <input id="em" type="email" inputmode="email" autocomplete="email" placeholder="you@gmail.com"
+        style="width:100%;font:inherit;padding:12px 14px;border:1px solid var(--line);border-radius:10px">
+    </div>
+    <button class="btn" id="send" style="width:100%;margin-top:12px">Email me a sign-in code</button>
+    <p class="note" style="margin:16px 0 10px">or</p>
     <button class="gbtn" id="go">${GOOGLE_SVG} Continue with Google</button>
     <div class="note">Bikaner, Rajasthan</div></div>`;
-  document.getElementById("go").onclick = () => sb.auth.signInWithOAuth({
-    provider: "google",
-    options: { redirectTo: window.location.origin + "/leads.html" }
-  });
+
+  const send = document.getElementById("send");
+  send.onclick = async () => {
+    const email = document.getElementById("em").value.trim();
+    if (!email){ signInScreen("Please enter your email address."); return; }
+    send.disabled = true; send.textContent = "Sending...";
+    /* shouldCreateUser:false means a code is only ever sent to an account that
+       already exists. It does not by itself grant access - the allowlist still
+       decides what can be read. */
+    const { error } = await sb.auth.signInWithOtp({ email, options: { shouldCreateUser: true } });
+    if (error){ signInScreen(error.message); return; }
+    codeScreen(email);
+  };
+
+  document.getElementById("go").onclick = async () => {
+    const { error } = await sb.auth.signInWithOAuth({
+      provider: "google",
+      options: { redirectTo: window.location.origin + "/leads.html" }
+    });
+    if (error){
+      signInScreen("Google sign-in is not switched on for this site yet. Use the email code above, or ask the owner to finish the Google setup.");
+    }
+  };
+}
+
+function codeScreen(email){
+  app.innerHTML = `<div class="center card">
+    <h2>Check your email</h2>
+    <p>We sent a 6-digit code to <b>${esc(email)}</b>. Enter it below.</p>
+    <input id="code" inputmode="numeric" maxlength="6" placeholder="000000"
+      style="width:100%;font:inherit;font-size:26px;letter-spacing:.34em;text-align:center;padding:12px;border:1px solid var(--line);border-radius:10px">
+    <button class="btn" id="ok" style="width:100%;margin-top:12px">Sign in</button>
+    <button class="btn ghost" id="back" style="width:100%;margin-top:9px">Use a different email</button>
+  </div>`;
+  document.getElementById("back").onclick = () => signInScreen();
+  document.getElementById("ok").onclick = async () => {
+    const token = document.getElementById("code").value.trim();
+    const { error } = await sb.auth.verifyOtp({ email, token, type: "email" });
+    if (error){ codeScreen(email); setTimeout(() => {
+      const c = document.querySelector(".center"); if (!c) return;
+      const d = document.createElement("div"); d.className = "err"; d.textContent = error.message; c.prepend(d);
+    }, 30); return; }
+    boot();
+  };
 }
 
 function deniedScreen(email){

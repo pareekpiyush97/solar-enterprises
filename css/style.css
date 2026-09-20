@@ -699,3 +699,7 @@ a,button,input,select,textarea{-webkit-tap-highlight-color:rgba(0,0,0,0)}
 .inq__err{margin-top:14px;font-size:14px;font-weight:600;color:#d64d4d}
 
 @media(max-width:860px){.story__leaders{grid-template-columns:1fr 1fr}} /* story__leaders 3col tablet */
+
+/* lead capture section */
+.leadsec{padding:var(--sec) 0;background:var(--cream)}
+.leadsec__in{max-width:680px}
