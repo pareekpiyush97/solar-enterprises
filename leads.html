@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Leads — Solar Energy Enterprises</title>
+<link rel="icon" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#fff; --cream:#eef2f7; --ink:#0e1f33; --ink-soft:#33455e;
+  --muted:rgba(14,31,51,.60); --faint:rgba(14,31,51,.42);
+  --line:rgba(14,31,51,.13);
+  --blue:#155a9e; --blue-2:#10406f; --dark:#0a1f38;
+  --ok:#0f7b46; --warn:#a8631a; --r:14px;
+  --serif:"Fraunces",Georgia,serif; --sans:"Inter",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:14px}
+.wrap{max-width:1240px;margin:0 auto;padding:clamp(18px,4vw,34px)}
+header{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(23px,3vw,31px);margin:0;letter-spacing:-.01em}
+.sub{color:var(--muted);font-size:13px;margin-top:3px}
+.who{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ink-soft)}
+.btn{border:0;border-radius:10px;padding:10px 18px;font:inherit;font-weight:600;cursor:pointer;background:var(--blue);color:#fff}
+.btn:hover{background:var(--blue-2)}
+.btn.ghost{background:transparent;color:var(--ink-soft);border:1px solid var(--line)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:clamp(22px,4vw,40px)}
+.center{max-width:430px;margin:9vh auto;text-align:center}
+.center h2{font-family:var(--serif);font-weight:600;font-size:22px;margin:0 0 8px}
+.center p{color:var(--muted);line-height:1.6;margin:0 0 22px}
+.gbtn{display:inline-flex;align-items:center;gap:11px;background:#fff;border:1px solid var(--line);
+  border-radius:10px;padding:12px 22px;font:inherit;font-weight:600;cursor:pointer;color:var(--ink)}
+.gbtn:hover{border-color:var(--blue)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:11px;margin-bottom:20px}
+.stat{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:13px 16px}
+.stat b{display:block;font-family:var(--serif);font-size:25px;font-weight:600;line-height:1.1;color:var(--blue)}
+.stat span{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--faint)}
+.bar{display:flex;gap:9px;margin-bottom:14px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:7px 15px;
+  font-size:12.5px;font-weight:500;cursor:pointer;color:var(--ink-soft)}
+.chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tblwrap{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:auto}
+table{width:100%;border-collapse:collapse;min-width:900px}
+th{background:var(--dark);color:#fff;text-align:left;font-size:10.5px;text-transform:uppercase;
+  letter-spacing:.08em;padding:11px 14px;font-weight:600;position:sticky;top:0}
+td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+.nm{font-weight:600}
+.meta{color:var(--faint);font-size:11.5px;display:block;margin-top:2px}
+a.ph{color:var(--blue);text-decoration:none;font-weight:600;white-space:nowrap}
+a.ph:hover{text-decoration:underline}
+select,textarea{font:inherit;border:1px solid var(--line);border-radius:8px;padding:6px 9px;background:var(--paper);color:var(--ink);width:100%}
+textarea{resize:vertical;min-height:38px;font-size:12.5px}
+.badge{display:inline-block;padding:2.5px 9px;border-radius:999px;font-size:10.5px;font-weight:700}
+.b-new{background:#e7f0fa;color:var(--blue-2)}
+.b-contacted{background:#e9f4ed;color:var(--ok)}
+.b-survey_booked,.b-quoted{background:#fcf1e2;color:var(--warn)}
+.b-won{background:var(--ok);color:#fff}
+.b-lost{background:rgba(14,31,51,.08);color:var(--muted)}
+.wait{font-weight:700}
+.wait.bad{color:#b4261f}
+.empty{padding:56px 20px;text-align:center;color:var(--muted)}
+.note{color:var(--faint);font-size:11.5px;margin-top:14px;text-align:center}
+.err{background:#fdeceb;border:1px solid #f3c6c3;color:#8d221c;border-radius:10px;padding:13px 16px;margin-bottom:16px;font-size:13px}
+@media(max-width:640px){.who{width:100%;justify-content:space-between}}
+</style>
+</head>
+<body>
+<div class="wrap"><div id="app"><div class="center"><p style="color:var(--muted)">Loading…</p></div></div></div>
+<script type="module">
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+/* This key is meant to be public. It grants nothing on its own: every read is gated
+   by row level security inside Postgres, against an allowlist this page cannot see
+   or change. An unauthorised visitor gets an empty result, not a hidden one. */
+const SUPABASE_URL = "https://jsbzinoecnqfjgrhkqzi.supabase.co";
+const SUPABASE_KEY = "sb_publishable_7aFmJDJQ1PBws9HVhV0DWw_KWK9AliH";
+const sb = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+const app = document.getElementById("app");
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", "\u0022":"&quot;" }[c]));
+const LABEL = { new:"New", contacted:"Contacted", survey_booked:"Survey booked", quoted:"Quoted", won:"Won", lost:"Lost" };
+let LEADS = [], FILTER = "all", EMAIL = "";
+
+const GOOGLE_SVG = `<svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true">
+<path fill="#4285F4" d="M45 24c0-1.6-.1-2.7-.4-3.9H24v7.1h12c-.2 1.8-1.5 4.6-4.4 6.4l6.7 5.2C42.2 35.1 45 30 45 24z"/>
+<path fill="#34A853" d="M24 46c5.9 0 10.9-1.9 14.5-5.2l-6.9-5.4c-1.8 1.3-4.3 2.2-7.6 2.2-5.8 0-10.7-3.8-12.5-9.9l-7.1 5.5C8 41 15.4 46 24 46z"/>
+<path fill="#FBBC05" d="M11.5 27.7c-.5-1.4-.7-2.9-.7-4.4s.3-3 .7-4.4l-7.1-5.5C2.9 16.3 2 20 2 23.3s.9 7 2.4 9.9z"/>
+<path fill="#EA4335" d="M24 9.5c4.1 0 6.9 1.8 8.5 3.3l6.2-6C34.9 3.3 29.9 1 24 1 15.4 1 8 6 4.4 13.4l7.1 5.5C13.3 13.3 18.2 9.5 24 9.5z"/></svg>`;
+
+function signInScreen(msg){
+  app.innerHTML = `<div class="center card">
+    <h2>Solar Energy Enterprises</h2>
+    <p>Lead portal. Access is limited to approved accounts.</p>
+    ${msg ? `<div class="err">${esc(msg)}</div>` : ""}
+    <button class="gbtn" id="go">${GOOGLE_SVG} Continue with Google</button>
+    <div class="note">Bikaner, Rajasthan</div></div>`;
+  document.getElementById("go").onclick = () => sb.auth.signInWithOAuth({
+    provider: "google",
+    options: { redirectTo: window.location.origin + "/leads.html" }
+  });
+}
+
+function deniedScreen(email){
+  app.innerHTML = `<div class="center card">
+    <h2>No access</h2>
+    <p>You are signed in as <b>${esc(email)}</b>, but that account is not on the approved list for this portal.</p>
+    <button class="btn ghost" id="out">Sign out</button>
+    <div class="note">If that is wrong, the account has to be added by the owner.</div></div>`;
+  document.getElementById("out").onclick = async () => { await sb.auth.signOut(); location.reload(); };
+}
+
+function waited(l){
+  if (l.contacted_at){
+    const m = Math.round((new Date(l.contacted_at) - new Date(l.created_at)) / 60000);
+    return { txt: m < 60 ? m + "m" : Math.round(m/60) + "h", bad: false };
+  }
+  const m = Math.round((Date.now() - new Date(l.created_at)) / 60000);
+  const t = m < 60 ? m + "m" : m < 1440 ? Math.round(m/60) + "h" : Math.round(m/1440) + "d";
+  return { txt: t + " waiting", bad: m > 60 };
+}
+
+function render(){
+  const rows = FILTER === "all" ? LEADS : LEADS.filter(l => l.status === FILTER);
+  const open  = LEADS.filter(l => !l.contacted_at).length;
+  const today = LEADS.filter(l => new Date(l.created_at).toDateString() === new Date().toDateString()).length;
+  const won   = LEADS.filter(l => l.status === "won").length;
+  const FILTERS = ["all","new","contacted","survey_booked","quoted","won","lost"];
+
+  const body = rows.map(l => {
+    const w = waited(l);
+    const wa = "https://wa.me/91" + String(l.phone).replace(/\D/g,"").slice(-10);
+    const opts = Object.keys(LABEL).map(k =>
+      `<option value="${k}"${l.status === k ? " selected" : ""}>${LABEL[k]}</option>`).join("");
+    return `<tr>
+      <td>${new Date(l.created_at).toLocaleDateString("en-IN",{day:"2-digit",month:"short"})}
+          <span class="meta">${new Date(l.created_at).toLocaleTimeString("en-IN",{hour:"2-digit",minute:"2-digit"})}</span></td>
+      <td class="nm">${esc(l.name)}<span class="meta">${esc(l.city || "")}${l.source_page ? " &middot; via " + esc(l.source_page) : ""}</span></td>
+      <td><a class="ph" href="tel:${esc(l.phone)}">${esc(l.phone)}</a>
+          <span class="meta"><a class="ph" href="${wa}" target="_blank" rel="noopener">WhatsApp</a></span></td>
+      <td>${esc(l.property_type || "\u2014")}</td>
+      <td>${esc(l.monthly_bill || "\u2014")}</td>
+      <td style="max-width:230px">${esc(l.message || "\u2014")}</td>
+      <td><span class="wait ${w.bad ? "bad" : ""}">${w.txt}</span></td>
+      <td><select data-id="${l.id}" data-k="status">${opts}</select>
+          <div style="margin-top:5px"><span class="badge b-${l.status}">${LABEL[l.status]}</span></div></td>
+      <td style="min-width:170px"><textarea data-id="${l.id}" data-k="notes" placeholder="Notes">${esc(l.notes || "")}</textarea></td>
+    </tr>`;
+  }).join("");
+
+  const table = rows.length
+    ? `<table><thead><tr><th>Received</th><th>Name</th><th>Phone</th><th>Property</th><th>Bill</th><th>Message</th><th>Waited</th><th>Status</th><th>Notes</th></tr></thead><tbody>${body}</tbody></table>`
+    : `<div class="empty">No leads yet.<br><span style="font-size:12.5px">They appear here the moment someone submits the form on the website.</span></div>`;
+
+  app.innerHTML = `<header>
+      <div><h1>Leads</h1><div class="sub">Solar Energy Enterprises &middot; Bikaner</div></div>
+      <div class="who"><span>${esc(EMAIL)}</span><button class="btn ghost" id="out">Sign out</button></div>
+    </header>
+    <div class="stats">
+      <div class="stat"><b>${LEADS.length}</b><span>Total</span></div>
+      <div class="stat"><b>${today}</b><span>Today</span></div>
+      <div class="stat"><b>${open}</b><span>Not replied yet</span></div>
+      <div class="stat"><b>${won}</b><span>Won</span></div>
+    </div>
+    <div class="bar">${FILTERS.map(k =>
+      `<button class="chip" data-f="${k}" aria-pressed="${FILTER === k}">${k === "all" ? "All" : LABEL[k]}</button>`).join("")}</div>
+    <div class="tblwrap">${table}</div>
+    <div class="note">Waited = time from enquiry to first reply. Over an hour shows red &mdash; a solar enquiry is usually calling two other installers at the same time.</div>`;
+
+  document.getElementById("out").onclick = async () => { await sb.auth.signOut(); location.reload(); };
+  app.querySelectorAll(".chip").forEach(c => { c.onclick = () => { FILTER = c.dataset.f; render(); }; });
+  app.querySelectorAll("select[data-k], textarea[data-k]").forEach(el => {
+    el.onchange = async () => {
+      const patch = {};
+      patch[el.dataset.k] = el.value;
+      const lead = LEADS.find(l => l.id === el.dataset.id);
+      if (el.dataset.k === "status" && el.value !== "new" && lead && !lead.contacted_at){
+        patch.contacted_at = new Date().toISOString();
+      }
+      const { error } = await sb.from("leads").update(patch).eq("id", el.dataset.id);
+      if (error){ alert("Could not save: " + error.message); return; }
+      await load();
+    };
+  });
+}
+
+async function load(){
+  const { data, error } = await sb.from("leads").select("*").order("created_at", { ascending: false });
+  if (error){ app.innerHTML = `<div class="card"><div class="err">${esc(error.message)}</div></div>`; return; }
+  LEADS = data || [];
+  render();
+}
+
+async function boot(){
+  const { data: { session } } = await sb.auth.getSession();
+  if (!session){ signInScreen(); return; }
+  EMAIL = session.user.email || "";
+  const { data: allowed, error } = await sb.rpc("is_portal_user");
+  if (error){ signInScreen(error.message); return; }
+  if (!allowed){ deniedScreen(EMAIL); return; }
+  await load();
+}
+
+sb.auth.onAuthStateChange(e => { if (e === "SIGNED_IN" || e === "SIGNED_OUT") boot(); });
+boot();
+</script>
+</body>
+</html>
