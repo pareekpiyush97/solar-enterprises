@@ -703,3 +703,9 @@ a,button,input,select,textarea{-webkit-tap-highlight-color:rgba(0,0,0,0)}
 /* lead capture section */
 .leadsec{padding:var(--sec) 0;background:var(--cream)}
 .leadsec__in{max-width:680px}
+
+/* discreet staff entry to the lead portal */
+.foot__login{position:absolute;right:var(--pad);bottom:14px;font-size:11px;letter-spacing:.09em;
+  text-transform:uppercase;opacity:.35;text-decoration:none;color:inherit;transition:opacity .25s}
+.foot__login:hover{opacity:.85}
+.foot{position:relative}
