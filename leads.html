@@ -96,22 +96,43 @@ function signInScreen(msg){
   app.innerHTML = `<div class="center card">
     <h2>Solar Energy Enterprises</h2>
     <p>Lead portal. Sign in with an approved Google account.</p>
-    ${msg ? `<div class="err">${esc(msg)}</div>` : ""}
+    ${msg ? `<div class="err">${msg}</div>` : ""}
     <button class="gbtn" id="go">${GOOGLE_SVG} Continue with Google</button>
     <div class="note">Bikaner, Rajasthan</div></div>`;
 
   document.getElementById("go").onclick = async () => {
-    const { error } = await sb.auth.signInWithOAuth({
+    const btn = document.getElementById("go");
+    btn.disabled = true;
+
+    /* Ask Supabase whether Google is actually switched on BEFORE handing the browser
+       over to it. signInWithOAuth navigates away rather than returning an error, so
+       without this check a disabled provider dumps raw JSON on the visitor:
+       {"code":400,"msg":"Unsupported provider: provider is not enabled"}. */
+    let enabled = false;
+    try {
+      const r = await fetch(SUPABASE_URL + "/auth/v1/settings", { headers: { apikey: SUPABASE_KEY } });
+      enabled = !!(await r.json()).external?.google;
+    } catch (e) {
+      signInScreen("Could not reach the sign-in service. Check your connection and try again.");
+      return;
+    }
+
+    if (!enabled) {
+      signInScreen(
+        "<b>Google sign-in is not switched on yet.</b><br>" +
+        "This is a one-time setup on the account, not a problem with your login:<br>" +
+        "1. Create an OAuth client in Google Cloud with the redirect URI " +
+        "<code style=\"font-size:11px\">" + SUPABASE_URL + "/auth/v1/callback</code><br>" +
+        "2. Enable Google in Supabase under Authentication &rarr; Providers.<br>" +
+        "Nobody can sign in until both are done."
+      );
+      return;
+    }
+
+    await sb.auth.signInWithOAuth({
       provider: "google",
       options: { redirectTo: window.location.origin + "/leads.html" }
     });
-    /* Google has to be switched on in Supabase, and its OAuth client has to exist
-       in Google Cloud. Until both are done this call fails, and it should say so
-       plainly rather than looking like a rejected login. */
-    if (error) signInScreen(
-      "Google sign-in is not switched on for this project yet, so nobody can sign in. " +
-      "It needs the OAuth client in Google Cloud and the provider enabled in Supabase."
-    );
   };
 }
 
