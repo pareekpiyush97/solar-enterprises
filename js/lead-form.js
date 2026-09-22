@@ -66,6 +66,20 @@ function markup(pageType){
       </select></div>
       <div class="full"><label for="lf-bill">Your usual monthly electricity bill</label>
         <select id="lf-bill" name="monthly_bill"><option value="">Prefer not to say</option>${bills}</select></div>
+      <div class="full"><label for="lf-src">How did you hear about us?</label>
+        <select id="lf-src" name="lead_source">
+          <option value="">Select...</option>
+          <option value="referral">Someone recommended you</option>
+          <option value="google_search">Google search</option>
+          <option value="google_maps">Google Maps</option>
+          <option value="instagram">Instagram</option>
+          <option value="facebook">Facebook</option>
+          <option value="whatsapp">WhatsApp</option>
+          <option value="walk_in">Passed your office</option>
+          <option value="other">Somewhere else</option>
+        </select></div>
+      <div class="full lf-ref" hidden><label for="lf-ref">Who recommended us?</label>
+        <input id="lf-ref" name="referred_by" placeholder="Their name or area — so we can thank them"></div>
       <div class="full"><label for="lf-msg">Anything else (optional)</label>
         <textarea id="lf-msg" name="message" placeholder="Roof type, rough area, when you want it done..."></textarea></div>
     </div>
@@ -100,6 +114,10 @@ function mount(host){
     btn.after(d);
   };
 
+  const src = form.querySelector("[name=lead_source]");
+  const refWrap = form.querySelector(".lf-ref");
+  if (src && refWrap) src.addEventListener("change", () => { refWrap.hidden = src.value !== "referral"; });
+
   form.addEventListener("submit", async ev => {
     ev.preventDefault();
     const f = new FormData(form);
@@ -121,7 +139,9 @@ function mount(host){
       property_type: f.get("property_type") || null,
       monthly_bill:  f.get("monthly_bill") || null,
       message:       (f.get("message") || "").trim() || null,
-      source_page:   (location.pathname.split("/").pop() || "index.html").replace(".html", "")
+      source_page:   (location.pathname.split("/").pop() || "index.html").replace(".html", ""),
+      lead_source:   f.get("lead_source") || null,
+      referred_by:   (f.get("referred_by") || "").trim() || null
     };
 
     try {
