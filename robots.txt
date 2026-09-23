@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
+# Staff-only management system. Not for indexing.
+Disallow: /portal.html
+Disallow: /leads.html
 
 # AI search & answer engines — explicitly welcome
 User-agent: GPTBot

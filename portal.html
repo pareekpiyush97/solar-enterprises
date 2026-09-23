@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Management — Solar Energy Enterprises</title>
+<link rel="icon" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#fff; --cream:#eef2f7; --ink:#0e1f33; --ink-soft:#33455e;
+  --muted:rgba(14,31,51,.60); --faint:rgba(14,31,51,.42);
+  --line:rgba(14,31,51,.13); --line-soft:rgba(14,31,51,.07);
+  --blue:#155a9e; --blue-2:#10406f; --dark:#0a1f38; --tint:#e7f0fa;
+  --ok:#0f7b46; --warn:#a8631a; --bad:#b4261f;
+  --c1:#155a9e; --c2:#0f7b46; --c3:#a8631a; --c4:#6b4fa0; --c5:#b4261f; --c6:#2b7f8c;
+  --r:14px;
+  --serif:"Fraunces",Georgia,serif; --sans:"Inter",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:14px;-webkit-font-smoothing:antialiased}
+a{color:var(--blue)}
+
+/* ---------- shell ---------- */
+.shell{display:grid;grid-template-columns:236px 1fr;min-height:100vh}
+.side{background:var(--paper);border-right:1px solid var(--line);padding:20px 13px;
+  position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:5px;overflow:auto}
+.brand{display:flex;align-items:center;gap:10px;padding:6px 10px 18px}
+.brand b{font-family:var(--serif);font-weight:600;font-size:16px;letter-spacing:-.01em;line-height:1.15}
+.brand span{display:block;font-size:10.5px;color:var(--faint);font-weight:500;letter-spacing:.04em}
+.mark{width:31px;height:31px;border-radius:9px;background:var(--blue);color:#fff;display:grid;place-items:center;
+  font-family:var(--serif);font-weight:600;font-size:15px;flex:none}
+.nav{border:0;background:transparent;width:100%;display:flex;align-items:center;gap:11px;padding:10px 12px;
+  border-radius:10px;font:inherit;font-weight:500;color:var(--ink-soft);cursor:pointer;text-align:left}
+.nav:hover{background:var(--cream)}
+.nav[aria-current="true"]{background:var(--tint);color:var(--blue-2);font-weight:600}
+.nav svg{width:17px;height:17px;flex:none;opacity:.8}
+.sidefoot{margin-top:auto;padding-top:16px;border-top:1px solid var(--line);font-size:12px}
+.sidefoot .em{font-weight:600;color:var(--ink);word-break:break-all;line-height:1.35}
+.sidefoot .rl{color:var(--faint);font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;margin-top:3px}
+.main{padding:clamp(18px,3vw,32px);min-width:0;max-width:1320px}
+
+/* ---------- bits ---------- */
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(22px,2.6vw,29px);margin:0;letter-spacing:-.01em}
+.sub{color:var(--muted);font-size:13px;margin-top:3px}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.btn{border:0;border-radius:10px;padding:10px 17px;font:inherit;font-weight:600;cursor:pointer;background:var(--blue);color:#fff}
+.btn:hover{background:var(--blue-2)}
+.btn:disabled{opacity:.55;cursor:default}
+.btn.ghost{background:transparent;color:var(--ink-soft);border:1px solid var(--line)}
+.btn.ghost:hover{background:var(--paper);border-color:var(--blue)}
+.btn.sm{padding:7px 13px;font-size:12.5px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:clamp(20px,3vw,26px)}
+.grid{display:grid;gap:13px}
+.g4{grid-template-columns:repeat(auto-fit,minmax(185px,1fr))}
+.g2{grid-template-columns:minmax(0,1.55fr) minmax(0,1fr)}
+@media(max-width:940px){.g2{grid-template-columns:1fr}}
+
+.kpi{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px}
+.kpi .t{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12.5px;font-weight:500}
+.kpi .v{font-family:var(--serif);font-size:31px;font-weight:600;line-height:1.15;margin-top:9px;letter-spacing:-.02em}
+.kpi .d{font-size:12px;font-weight:600;margin-top:4px}
+.kpi .d.up{color:var(--ok)} .kpi .d.dn{color:var(--bad)} .kpi .d.flat{color:var(--faint);font-weight:500}
+.ic{width:27px;height:27px;border-radius:8px;display:grid;place-items:center;background:var(--tint);color:var(--blue)}
+.ic svg{width:14px;height:14px}
+
+.ttl{font-family:var(--serif);font-weight:600;font-size:16px;margin:0 0 16px}
+.legend{display:flex;flex-direction:column;gap:9px;font-size:13px}
+.legend div{display:flex;align-items:center;gap:9px}
+.legend i{width:9px;height:9px;border-radius:50%;flex:none}
+.legend b{margin-left:auto;font-variant-numeric:tabular-nums}
+
+.bar{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:7px 14px;
+  font-size:12.5px;font-weight:500;cursor:pointer;color:var(--ink-soft)}
+.chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+.tblwrap{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:auto}
+table{width:100%;border-collapse:collapse}
+th{background:var(--dark);color:#fff;text-align:left;font-size:10.5px;text-transform:uppercase;
+  letter-spacing:.08em;padding:11px 14px;font-weight:600;position:sticky;top:0;white-space:nowrap}
+td{padding:11px 14px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+tr:last-child td{border-bottom:0}
+.nm{font-weight:600}
+.meta{color:var(--faint);font-size:11.5px;display:block;margin-top:2px}
+a.ph{color:var(--blue);text-decoration:none;font-weight:600;white-space:nowrap}
+a.ph:hover{text-decoration:underline}
+input,select,textarea{font:inherit;border:1px solid var(--line);border-radius:9px;padding:8px 10px;
+  background:var(--paper);color:var(--ink);width:100%}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--tint);outline-offset:0;border-color:var(--blue)}
+textarea{resize:vertical;min-height:38px;font-size:12.5px}
+.badge{display:inline-block;padding:2.5px 9px;border-radius:999px;font-size:10.5px;font-weight:700;white-space:nowrap}
+.b-new,.b-scheduled{background:var(--tint);color:var(--blue-2)}
+.b-contacted,.b-done,.b-admin{background:#e9f4ed;color:var(--ok)}
+.b-survey_booked,.b-quoted{background:#fcf1e2;color:var(--warn)}
+.b-won{background:var(--ok);color:#fff}
+.b-lost,.b-cancelled,.b-staff,.b-no_show{background:rgba(14,31,51,.08);color:var(--muted)}
+.wait{font-weight:700}
+.wait.bad{color:var(--bad)}
+.empty{padding:52px 22px;text-align:center;color:var(--muted);line-height:1.6}
+.empty b{display:block;font-family:var(--serif);font-size:17px;color:var(--ink);font-weight:600;margin-bottom:6px}
+.note{color:var(--faint);font-size:11.5px;margin-top:13px;line-height:1.55}
+.err{background:#fdeceb;border:1px solid #f3c6c3;color:#8d221c;border-radius:10px;padding:12px 15px;margin-bottom:15px;font-size:13px}
+.ok{background:#eaf5ee;border:1px solid #bfe0cc;color:#0b5c34;border-radius:10px;padding:12px 15px;margin-bottom:15px;font-size:13px}
+
+/* ---------- modal ---------- */
+.veil{position:fixed;inset:0;background:rgba(10,31,56,.42);display:grid;place-items:center;padding:18px;z-index:50}
+.modal{background:var(--paper);border-radius:16px;width:min(560px,100%);max-height:88vh;overflow:auto;padding:clamp(20px,3vw,28px)}
+.modal h3{font-family:var(--serif);font-weight:600;font-size:19px;margin:0 0 4px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.fgrid .full{grid-column:1/-1}
+label.lb{display:block;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin:0 0 5px}
+@media(max-width:560px){.fgrid{grid-template-columns:1fr}}
+
+/* ---------- auth ---------- */
+.center{max-width:430px;margin:9vh auto;text-align:center}
+.center h2{font-family:var(--serif);font-weight:600;font-size:22px;margin:0 0 8px}
+.center p{color:var(--muted);line-height:1.6;margin:0 0 20px}
+.gbtn{display:inline-flex;align-items:center;gap:11px;background:#fff;border:1px solid var(--line);
+  border-radius:10px;padding:12px 22px;font:inherit;font-weight:600;cursor:pointer;color:var(--ink)}
+.gbtn:hover{border-color:var(--blue)}
+
+@media(max-width:860px){
+  .shell{grid-template-columns:1fr}
+  .side{position:static;height:auto;flex-direction:row;align-items:center;gap:4px;overflow-x:auto;
+    border-right:0;border-bottom:1px solid var(--line);padding:10px}
+  .brand{padding:0 12px 0 4px}
+  .brand .txt{display:none}
+  .nav{width:auto;white-space:nowrap;padding:9px 13px}
+  .sidefoot{margin:0 0 0 auto;padding:0 4px 0 14px;border-top:0;border-left:1px solid var(--line);white-space:nowrap}
+  .sidefoot .em{font-size:11px;max-width:150px;overflow:hidden;text-overflow:ellipsis;word-break:normal}
+}
+</style>
+</head>
+<body>
+<div id="app"><div class="center"><p style="color:var(--muted);margin-top:14vh">Loading…</p></div></div>
+
+<script type="module">
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+/* This key is meant to be public. It grants nothing on its own: every read and write is
+   gated by row level security inside Postgres, against an allowlist this page cannot see
+   or change. An unauthorised visitor gets an empty result, not a hidden one. */
+const SUPABASE_URL = "https://jsbzinoecnqfjgrhkqzi.supabase.co";
+const SUPABASE_KEY = "sb_publishable_7aFmJDJQ1PBws9HVhV0DWw_KWK9AliH";
+const sb = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+const $  = id => document.getElementById(id);
+const app = $("app");
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
+const DASH = "—";
+
+const STATUS = { new:"New", contacted:"Contacted", survey_booked:"Survey booked", quoted:"Quoted", won:"Won", lost:"Lost" };
+const SRC = { referral:"Referral", google_search:"Google", google_maps:"Maps", instagram:"Instagram",
+  facebook:"Facebook", whatsapp:"WhatsApp", walk_in:"Walk-in", hoarding:"Hoarding", ads:"Ads", tender:"Tender", other:"Other" };
+const KIND = { site_survey:"Site survey", installation:"Installation", service:"Service call",
+  health_check:"Health check", meeting:"Meeting" };
+const BSTATUS = { scheduled:"Scheduled", done:"Done", cancelled:"Cancelled", no_show:"No show" };
+const SEG = { residential:"Residential", commercial:"Commercial", enterprise:"Enterprise / EPC" };
+const SYS = { on_grid:"On-grid", off_grid:"Off-grid", hybrid:"Hybrid", ground_mount:"Ground-mount", solar_pump:"Solar pump" };
+const SUBSIDY = { not_applicable:"Not applicable", applied:"Applied", approved:"Approved", received:"Received" };
+
+const S = { view:"dashboard", email:"", admin:false, leads:[], clients:[], bookings:[], staff:[], filter:"all", msg:null };
+
+/* ---------------------------------------------------------------- icons */
+const I = {
+  dashboard:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>',
+  enquiries:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',
+  bookings:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
+  clients:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20c0-4 3.4-6.5 7.5-6.5s7.5 2.5 7.5 6.5"/></svg>',
+  analytics:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 20h18"/><path d="m4 15 5-5 4 3 6-7"/></svg>',
+  settings:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"/></svg>',
+  clock:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>'
+};
+const GOOGLE_SVG = `<svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true">
+<path fill="#4285F4" d="M45 24c0-1.6-.1-2.7-.4-3.9H24v7.1h12c-.2 1.8-1.5 4.6-4.4 6.4l6.7 5.2C42.2 35.1 45 30 45 24z"/>
+<path fill="#34A853" d="M24 46c5.9 0 10.9-1.9 14.5-5.2l-6.9-5.4c-1.8 1.3-4.3 2.2-7.6 2.2-5.8 0-10.7-3.8-12.5-9.9l-7.1 5.5C8 41 15.4 46 24 46z"/>
+<path fill="#FBBC05" d="M11.5 27.7c-.5-1.4-.7-2.9-.7-4.4s.3-3 .7-4.4l-7.1-5.5C2.9 16.3 2 20 2 23.3s.9 7 2.4 9.9z"/>
+<path fill="#EA4335" d="M24 9.5c4.1 0 6.9 1.8 8.5 3.3l6.2-6C34.9 3.3 29.9 1 24 1 15.4 1 8 6 4.4 13.4l7.1 5.5C13.3 13.3 18.2 9.5 24 9.5z"/></svg>`;
+
+/* ---------------------------------------------------------------- helpers */
+const dISO = d => new Date(d).toISOString().slice(0,10);
+const fmtD = d => d ? new Date(d).toLocaleDateString("en-IN",{day:"2-digit",month:"short",year:"2-digit"}) : DASH;
+const fmtDT = d => d ? new Date(d).toLocaleString("en-IN",{day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"}) : DASH;
+const money = n => (n === null || n === undefined || n === "") ? DASH
+  : "₹" + Number(n).toLocaleString("en-IN",{maximumFractionDigits:0});
+const wa = p => "https://wa.me/91" + String(p||"").replace(/\D/g,"").slice(-10);
+const daysAgo = n => { const d = new Date(); d.setHours(0,0,0,0); d.setDate(d.getDate()-n); return d; };
+const opts = (map, sel, blank) =>
+  (blank ? `<option value="">${blank}</option>` : "") +
+  Object.keys(map).map(k => `<option value="${k}"${sel === k ? " selected" : ""}>${map[k]}</option>`).join("");
+
+/* Change against the previous equal-length window. Returns null when there is nothing to
+   compare against - an honest blank instead of a made-up percentage. */
+function delta(cur, prev){
+  if (!prev) return null;
+  return Math.round(((cur - prev) / prev) * 1000) / 10;
+}
+function deltaHTML(d){
+  if (d === null) return `<div class="d flat">No earlier period to compare</div>`;
+  if (d === 0)    return `<div class="d flat">No change</div>`;
+  return `<div class="d ${d > 0 ? "up" : "dn"}">${d > 0 ? "↑" : "↓"} ${Math.abs(d)}% vs previous 30 days</div>`;
+}
+
+/* ---------------------------------------------------------------- charts (hand-rolled SVG) */
+function areaChart(series){
+  const W = 620, H = 168, P = 8;
+  const max = Math.max(1, ...series.map(p => p.v));
+  const n = series.length;
+  const step = n > 1 ? (W - P*2) / (n - 1) : 0;
+  const pts = series.map((p,i) => [P + i*step, H - P - (p.v / max) * (H - P*2.4)]);
+  const line = pts.map((c,i) => (i ? "L" : "M") + c[0].toFixed(1) + " " + c[1].toFixed(1)).join(" ");
+  const area = `${line} L${(P + (n-1)*step).toFixed(1)} ${H-P} L${P} ${H-P} Z`;
+  const first = series[0], last = series[n-1];
+  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" style="width:100%;height:170px;display:block" role="img"
+    aria-label="Enquiries per day, peak ${max}">
+    <defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="var(--blue)" stop-opacity=".22"/>
+      <stop offset="100%" stop-color="var(--blue)" stop-opacity="0"/></linearGradient></defs>
+    <path d="${area}" fill="url(#ag)"/>
+    <path d="${line}" fill="none" stroke="var(--blue)" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>
+  </svg>
+  <div style="display:flex;justify-content:space-between;color:var(--faint);font-size:11px;margin-top:7px">
+    <span>${esc(first.label)}</span><span>Peak ${max} in a day</span><span>${esc(last.label)}</span></div>`;
+}
+
+function donut(segs){
+  const total = segs.reduce((a,s) => a + s.v, 0);
+  if (!total) return "";
+  const R = 54, C = 2 * Math.PI * R;
+  let off = 0;
+  const rings = segs.map(s => {
+    const len = (s.v / total) * C;
+    const el = `<circle cx="70" cy="70" r="${R}" fill="none" stroke="${s.color}" stroke-width="19"
+      stroke-dasharray="${len.toFixed(2)} ${(C - len).toFixed(2)}" stroke-dashoffset="${(-off).toFixed(2)}"
+      transform="rotate(-90 70 70)"/>`;
+    off += len; return el;
+  }).join("");
+  return `<svg viewBox="0 0 140 140" style="width:140px;height:140px;flex:none" role="img" aria-label="Enquiry sources">${rings}</svg>`;
+}
+
+/* ---------------------------------------------------------------- auth screens */
+const FIELD = "width:100%;font:inherit;font-size:15px;padding:12px 14px;border:1px solid var(--line);border-radius:10px";
+const LBL = "display:block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin:0 0 5px";
+
+function signInScreen(msg, mode){
+  mode = mode || "in";
+  const creating = mode === "up";
+  app.innerHTML = `<div class="center card">
+    <h2>Solar Energy Enterprises</h2>
+    <p>${creating ? "Set a password for your approved staff account." : "Management system. Staff access only."}</p>
+    ${msg ? `<div class="err">${esc(msg)}</div>` : ""}
+    <div style="text-align:left">
+      <label for="em" style="${LBL}">Email</label>
+      <input id="em" type="email" inputmode="email" autocomplete="email" placeholder="you@gmail.com" style="${FIELD}">
+      <label for="pw" style="${LBL};margin-top:13px">Password</label>
+      <input id="pw" type="password" autocomplete="${creating ? "new-password" : "current-password"}"
+             placeholder="${creating ? "At least 8 characters" : "Your password"}" style="${FIELD}">
+    </div>
+    <button class="btn" id="go" style="width:100%;margin-top:16px">${creating ? "Create my password" : "Log in"}</button>
+    <p class="note" style="margin-top:14px;text-align:center">
+      ${creating ? `Already set up? <a href="#" id="swap">Log in instead</a>`
+                 : `First time here? <a href="#" id="swap">Set your password</a>`}</p>
+    <div class="note" style="margin-top:18px;padding-top:14px;border-top:1px solid var(--line);text-align:center">
+      <button class="gbtn" id="gg" style="font-size:13px;padding:9px 16px">${GOOGLE_SVG} Continue with Google</button>
+    </div></div>`;
+
+  $("swap").onclick = e => { e.preventDefault(); signInScreen("", creating ? "in" : "up"); };
+  $("pw").onkeydown = e => { if (e.key === "Enter") $("go").click(); };
+
+  $("go").onclick = async () => {
+    const email = $("em").value.trim(), pw = $("pw").value;
+    if (!email || !pw) return signInScreen("Please fill in both fields.", mode);
+    if (creating && pw.length < 8) return signInScreen("Password must be at least 8 characters.", mode);
+    const b = $("go"); b.disabled = true; b.textContent = creating ? "Creating…" : "Logging in…";
+
+    if (creating){
+      const { error } = await sb.auth.signUp({ email, password: pw });
+      /* The allowlist trigger refuses account creation for anyone not approved, and
+         Supabase surfaces that as a generic database error. Say what it really means. */
+      if (error) return signInScreen(/database error|saving new user/i.test(error.message)
+        ? "That email has not been given access to this portal. Ask an admin to add you first."
+        : error.message, "up");
+      app.innerHTML = `<div class="center card"><h2>Check your email</h2>
+        <p>We sent a confirmation link to <b>${esc(email)}</b>. Open it once, then come back and log in.</p>
+        <button class="btn ghost" id="back" style="width:100%">Back to login</button></div>`;
+      $("back").onclick = () => signInScreen();
+      return;
+    }
+    const { error } = await sb.auth.signInWithPassword({ email, password: pw });
+    if (error) return signInScreen(/not confirmed/i.test(error.message)
+      ? "Open the confirmation link we emailed you first, then log in."
+      : "Wrong email or password.", "in");
+    boot();
+  };
+
+  $("gg").onclick = async () => {
+    /* Never hand the browser to a provider that is switched off - it returns raw JSON. */
+    let on = false;
+    try {
+      const r = await fetch(SUPABASE_URL + "/auth/v1/settings", { headers: { apikey: SUPABASE_KEY } });
+      on = !!(await r.json()).external?.google;
+    } catch (e) { return signInScreen("Could not reach the sign-in service.", mode); }
+    if (!on) return signInScreen("Google sign-in is not switched on for this project yet. Use your email and password above.", mode);
+    await sb.auth.signInWithOAuth({ provider:"google", options:{ redirectTo: window.location.origin + "/portal.html" } });
+  };
+}
+
+function deniedScreen(email){
+  app.innerHTML = `<div class="center card"><h2>No access</h2>
+    <p>You are signed in as <b>${esc(email)}</b>, but that account has not been given access to this system.</p>
+    <button class="btn ghost" id="out">Sign out</button>
+    <div class="note" style="text-align:center">Access is granted by an admin from the Settings page.</div></div>`;
+  $("out").onclick = async () => { await sb.auth.signOut(); location.reload(); };
+}
+
+/* ---------------------------------------------------------------- views */
+const NAV = [["dashboard","Dashboard"],["enquiries","Enquiries"],["bookings","Bookings"],
+             ["clients","Clients"],["analytics","Analytics"],["settings","Settings"]];
+
+function shell(inner){
+  return `<div class="shell">
+    <aside class="side">
+      <div class="brand"><div class="mark">S</div>
+        <div class="txt"><b>Solar Energy</b><span>MANAGEMENT</span></div></div>
+      ${NAV.map(([k,l]) => `<button class="nav" data-v="${k}" aria-current="${S.view === k}">${I[k]}<span>${l}</span></button>`).join("")}
+      <div class="sidefoot">
+        <div class="em">${esc(S.email)}</div>
+        <div class="rl">${S.admin ? "Admin" : "Staff"}</div>
+        <button class="btn ghost sm" id="out" style="margin-top:9px;width:100%">Sign out</button>
+      </div>
+    </aside>
+    <main class="main">${S.msg ? `<div class="${S.msg.k}">${esc(S.msg.t)}</div>` : ""}${inner}</main>
+  </div>`;
+}
+
+function vDashboard(){
+  const d30 = daysAgo(29), d60 = daysAgo(59);
+  const inWin = (d, from, to) => { const t = new Date(d); return t >= from && (!to || t < to); };
+  const l30 = S.leads.filter(l => inWin(l.created_at, d30));
+  const l60 = S.leads.filter(l => inWin(l.created_at, d60, d30));
+  const c30 = S.clients.filter(c => inWin(c.created_at, d30));
+  const c60 = S.clients.filter(c => inWin(c.created_at, d60, d30));
+  const b30 = S.bookings.filter(b => inWin(b.created_at, d30));
+  const b60 = S.bookings.filter(b => inWin(b.created_at, d60, d30));
+  const r30 = l30.length ? Math.round(l30.filter(l => l.contacted_at).length / l30.length * 100) : 0;
+  const r60 = l60.length ? Math.round(l60.filter(l => l.contacted_at).length / l60.length * 100) : 0;
+
+  const kpis = [
+    ["Enquiries", l30.length, delta(l30.length, l60.length), I.enquiries],
+    ["New clients", c30.length, delta(c30.length, c60.length), I.clients],
+    ["Bookings", b30.length, delta(b30.length, b60.length), I.bookings],
+    ["Reply rate", l30.length ? r30 + "%" : DASH, l60.length ? delta(r30, r60) : null, I.clock]
+  ].map(([t,v,d,ic]) => `<div class="kpi"><div class="t">${t}<span class="ic">${ic}</span></div>
+      <div class="v">${v}</div>${deltaHTML(d)}</div>`).join("");
+
+  // daily series across the last 30 days, from real rows only
+  const series = [];
+  for (let i = 29; i >= 0; i--){
+    const day = daysAgo(i), key = dISO(day);
+    series.push({ label: day.toLocaleDateString("en-IN",{day:"numeric",month:"short"}),
+                  v: S.leads.filter(l => dISO(l.created_at) === key).length });
+  }
+
+  const counts = {};
+  l30.forEach(l => { const k = l.lead_source || "unknown"; counts[k] = (counts[k]||0) + 1; });
+  const COLORS = ["var(--c1)","var(--c2)","var(--c3)","var(--c4)","var(--c5)","var(--c6)"];
+  const segs = Object.entries(counts).sort((a,b) => b[1]-a[1])
+    .map(([k,v],i) => ({ label: SRC[k] || "Not recorded", v, color: COLORS[i % COLORS.length] }));
+  const tot = segs.reduce((a,s) => a+s.v, 0);
+
+  const upcoming = S.bookings.filter(b => b.status === "scheduled" && new Date(b.scheduled_at) >= new Date())
+    .sort((a,b) => new Date(a.scheduled_at) - new Date(b.scheduled_at)).slice(0,6);
+  const waiting = S.leads.filter(l => !l.contacted_at)
+    .sort((a,b) => new Date(a.created_at) - new Date(b.created_at)).slice(0,6);
+
+  return `<div class="head"><div><h1>Welcome back</h1>
+      <div class="sub">Here is what is happening at Solar Energy Enterprises. Last 30 days.</div></div>
+      <button class="btn ghost sm" id="refresh">Refresh</button></div>
+    <div class="grid g4" style="margin-bottom:14px">${kpis}</div>
+    <div class="grid g2" style="margin-bottom:14px">
+      <div class="card"><h2 class="ttl">Enquiries over time</h2>
+        ${S.leads.length ? areaChart(series)
+          : `<div class="empty"><b>No enquiries yet</b>The chart fills in as the website form is used.</div>`}</div>
+      <div class="card"><h2 class="ttl">Where enquiries come from</h2>
+        ${tot ? `<div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">${donut(segs)}
+            <div class="legend" style="flex:1;min-width:150px">${segs.map(s =>
+              `<div><i style="background:${s.color}"></i>${esc(s.label)}<b>${Math.round(s.v/tot*100)}%</b></div>`).join("")}</div></div>`
+          : `<div class="empty"><b>Nothing to break down yet</b>Every enquiry asks how the customer heard about us. That answer lands here.</div>`}</div>
+    </div>
+    <div class="grid g2">
+      <div class="card"><h2 class="ttl">Waiting for a reply</h2>
+        ${waiting.length ? `<div style="display:flex;flex-direction:column;gap:11px">${waiting.map(l => {
+            const w = waited(l);
+            return `<div style="display:flex;gap:12px;align-items:center;padding-bottom:11px;border-bottom:1px solid var(--line-soft)">
+              <div style="flex:1;min-width:0"><div class="nm">${esc(l.name)}</div>
+                <span class="meta">${esc(l.city || "")}${l.city && l.phone ? " · " : ""}${esc(l.phone || "")}</span></div>
+              <span class="wait ${w.bad ? "bad" : ""}">${w.txt}</span>
+              <a class="btn sm ghost" href="${wa(l.phone)}" target="_blank" rel="noopener">WhatsApp</a></div>`;
+          }).join("")}</div>`
+          : `<div class="empty"><b>Nothing waiting</b>Every enquiry has had a first reply.</div>`}
+        <div class="note">A solar enquiry is usually calling two other installers the same afternoon. Whoever replies first
+          usually gets the survey, and whoever surveys usually gets the job.</div></div>
+      <div class="card"><h2 class="ttl">Coming up</h2>
+        ${upcoming.length ? `<div style="display:flex;flex-direction:column;gap:11px">${upcoming.map(b =>
+            `<div style="display:flex;gap:12px;align-items:center;padding-bottom:11px;border-bottom:1px solid var(--line-soft)">
+              <div style="flex:1;min-width:0"><div class="nm">${esc(b.name)}</div>
+                <span class="meta">${KIND[b.kind] || esc(b.kind)}${b.city ? " · " + esc(b.city) : ""}</span></div>
+              <span style="font-size:12px;color:var(--ink-soft);text-align:right;white-space:nowrap">${fmtDT(b.scheduled_at)}</span></div>`).join("")}</div>`
+          : `<div class="empty"><b>Nothing scheduled</b>Site surveys, installs and service calls appear here.</div>`}</div>
+    </div>
+    <div class="note">Every number on this page is counted from real records in this system. Nothing here is sample data.</div>`;
+}
+
+function waited(l){
+  if (l.contacted_at){
+    const m = Math.round((new Date(l.contacted_at) - new Date(l.created_at)) / 60000);
+    return { txt: m < 60 ? m + "m" : Math.round(m/60) + "h", bad:false };
+  }
+  const m = Math.round((Date.now() - new Date(l.created_at)) / 60000);
+  const t = m < 60 ? m + "m" : m < 1440 ? Math.round(m/60) + "h" : Math.round(m/1440) + "d";
+  return { txt: t + " waiting", bad: m > 60 };
+}
+
+function vEnquiries(){
+  const rows = S.filter === "all" ? S.leads : S.leads.filter(l => l.status === S.filter);
+  const F = ["all", ...Object.keys(STATUS)];
+  const body = rows.map(l => {
+    const w = waited(l);
+    return `<tr>
+      <td>${fmtD(l.created_at)}<span class="meta">${new Date(l.created_at).toLocaleTimeString("en-IN",{hour:"2-digit",minute:"2-digit"})}</span></td>
+      <td class="nm">${esc(l.name)}<span class="meta">${esc(l.city || "")}${l.source_page ? " · via " + esc(l.source_page) : ""}</span></td>
+      <td><a class="ph" href="tel:${esc(l.phone)}">${esc(l.phone)}</a>
+          <span class="meta"><a class="ph" href="${wa(l.phone)}" target="_blank" rel="noopener">WhatsApp</a></span></td>
+      <td>${esc(l.property_type || DASH)}<span class="meta">${esc(l.monthly_bill || "")}</span></td>
+      <td>${l.lead_source ? `<span class="badge ${l.lead_source === "referral" ? "b-won" : "b-new"}">${esc(SRC[l.lead_source] || l.lead_source)}</span>` : DASH}
+          ${l.referred_by ? `<span class="meta">by ${esc(l.referred_by)}</span>` : ""}</td>
+      <td style="max-width:220px">${esc(l.message || DASH)}</td>
+      <td><span class="wait ${w.bad ? "bad" : ""}">${w.txt}</span></td>
+      <td style="min-width:130px"><select data-t="leads" data-id="${l.id}" data-k="status">${opts(STATUS, l.status)}</select></td>
+      <td style="min-width:160px"><textarea data-t="leads" data-id="${l.id}" data-k="notes" placeholder="Notes">${esc(l.notes || "")}</textarea></td>
+      <td><button class="btn sm ghost" data-conv="${l.id}">To client</button></td></tr>`;
+  }).join("");
+
+  return `<div class="head"><div><h1>Enquiries</h1>
+      <div class="sub">${S.leads.length} total · ${S.leads.filter(l => !l.contacted_at).length} waiting for a first reply</div></div></div>
+    <div class="bar">${F.map(k => `<button class="chip" data-f="${k}" aria-pressed="${S.filter === k}">${k === "all" ? "All" : STATUS[k]}</button>`).join("")}</div>
+    <div class="tblwrap">${rows.length
+      ? `<table style="min-width:1060px"><thead><tr><th>Received</th><th>Name</th><th>Phone</th><th>Property</th><th>Source</th><th>Message</th><th>Waited</th><th>Status</th><th>Notes</th><th></th></tr></thead><tbody>${body}</tbody></table>`
+      : `<div class="empty"><b>No enquiries${S.filter === "all" ? "" : " with that status"}</b>They appear here the moment someone submits the form on the website.</div>`}</div>`;
+}
+
+function vBookings(){
+  const now = new Date();
+  const up = S.bookings.filter(b => new Date(b.scheduled_at) >= now || b.status === "scheduled")
+    .sort((a,b) => new Date(a.scheduled_at) - new Date(b.scheduled_at));
+  const past = S.bookings.filter(b => !up.includes(b))
+    .sort((a,b) => new Date(b.scheduled_at) - new Date(a.scheduled_at));
+
+  const row = b => `<tr>
+    <td class="nm">${fmtDT(b.scheduled_at)}</td>
+    <td><span class="badge b-${b.status}">${KIND[b.kind] || esc(b.kind)}</span></td>
+    <td class="nm">${esc(b.name)}<span class="meta">${esc(b.city || "")}${b.address ? " · " + esc(b.address) : ""}</span></td>
+    <td>${b.phone ? `<a class="ph" href="tel:${esc(b.phone)}">${esc(b.phone)}</a>
+        <span class="meta"><a class="ph" href="${wa(b.phone)}" target="_blank" rel="noopener">WhatsApp</a></span>` : DASH}</td>
+    <td>${esc(b.assigned_to || DASH)}</td>
+    <td style="min-width:130px"><select data-t="bookings" data-id="${b.id}" data-k="status">${opts(BSTATUS, b.status)}</select></td>
+    <td style="min-width:160px"><textarea data-t="bookings" data-id="${b.id}" data-k="notes" placeholder="Notes">${esc(b.notes || "")}</textarea></td></tr>`;
+
+  const tbl = (list, empty) => list.length
+    ? `<div class="tblwrap" style="margin-bottom:18px"><table style="min-width:860px"><thead><tr><th>When</th><th>Type</th><th>Who</th><th>Phone</th><th>Assigned</th><th>Status</th><th>Notes</th></tr></thead><tbody>${list.map(row).join("")}</tbody></table></div>`
+    : `<div class="tblwrap" style="margin-bottom:18px"><div class="empty"><b>${empty}</b></div></div>`;
+
+  return `<div class="head"><div><h1>Bookings</h1>
+      <div class="sub">Site surveys, installations, service calls and health checks</div></div>
+      <button class="btn" id="addBooking">Add a booking</button></div>
+    <h2 class="ttl">Upcoming</h2>${tbl(up, "Nothing scheduled")}
+    <h2 class="ttl">Past</h2>${tbl(past, "Nothing completed yet")}`;
+}
+
+function vClients(){
+  const rows = S.clients.slice().sort((a,b) =>
+    new Date(b.install_date || b.created_at) - new Date(a.install_date || a.created_at));
+  const totalKw = rows.reduce((a,c) => a + (Number(c.system_kw) || 0), 0);
+  const asked = rows.filter(c => c.referral_asked_at).length;
+
+  const body = rows.map(c => `<tr>
+    <td class="nm">${esc(c.name)}<span class="meta">${esc(c.city || "")}${c.segment ? " · " + SEG[c.segment] : ""}</span></td>
+    <td>${c.phone ? `<a class="ph" href="tel:${esc(c.phone)}">${esc(c.phone)}</a>
+        <span class="meta"><a class="ph" href="${wa(c.phone)}" target="_blank" rel="noopener">WhatsApp</a></span>` : DASH}</td>
+    <td>${c.system_kw ? esc(c.system_kw) + " kW" : DASH}<span class="meta">${c.system_type ? SYS[c.system_type] : ""}</span></td>
+    <td>${fmtD(c.install_date)}</td>
+    <td>${money(c.order_value)}</td>
+    <td>${c.lead_source ? `<span class="badge ${c.lead_source === "referral" ? "b-won" : "b-new"}">${esc(SRC[c.lead_source] || c.lead_source)}</span>` : DASH}
+        ${c.referred_by ? `<span class="meta">by ${esc(c.referred_by)}</span>` : ""}</td>
+    <td>${c.referral_asked_at
+        ? `<span class="badge b-done">Asked ${fmtD(c.referral_asked_at)}</span>`
+        : `<button class="btn sm ghost" data-ask="${c.id}">Mark asked</button>`}</td>
+    <td style="min-width:160px"><textarea data-t="clients" data-id="${c.id}" data-k="notes" placeholder="Notes">${esc(c.notes || "")}</textarea></td></tr>`).join("");
+
+  return `<div class="head"><div><h1>Clients</h1>
+      <div class="sub">${rows.length} on record${totalKw ? " · " + totalKw.toFixed(1) + " kW installed" : ""} · ${asked} asked for a referral</div></div>
+      <button class="btn" id="addClient">Add a client</button></div>
+    <div class="tblwrap">${rows.length
+      ? `<table style="min-width:980px"><thead><tr><th>Name</th><th>Phone</th><th>System</th><th>Installed</th><th>Value</th><th>Came from</th><th>Referral ask</th><th>Notes</th></tr></thead><tbody>${body}</tbody></table>`
+      : `<div class="empty"><b>No clients on record yet</b>This is where the back catalogue belongs. Every past customer added here
+          becomes someone who can be asked for a referral &mdash; and the column tracks who has already been asked.</div>`}</div>
+    <div class="note">Records added here are the referral engine's working list. "Mark asked" stamps the date so nobody is asked twice.</div>`;
+}
+
+function vAnalytics(){
+  if (!S.leads.length && !S.clients.length)
+    return `<div class="head"><div><h1>Analytics</h1><div class="sub">Built from real records only</div></div></div>
+      <div class="card"><div class="empty"><b>Nothing to analyse yet</b>
+        These breakdowns appear once enquiries and clients start landing in the system.</div></div>`;
+
+  const bd = (list, key, map) => {
+    const c = {}; list.forEach(x => { const k = x[key] || "unknown"; c[k] = (c[k]||0)+1; });
+    const t = list.length || 1;
+    return Object.entries(c).sort((a,b) => b[1]-a[1]).map(([k,v]) =>
+      `<div style="margin-bottom:11px"><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px">
+        <span>${esc((map && map[k]) || "Not recorded")}</span><b>${v} · ${Math.round(v/t*100)}%</b></div>
+      <div style="height:7px;border-radius:99px;background:var(--cream)">
+        <div style="height:100%;border-radius:99px;background:var(--blue);width:${(v/t*100).toFixed(1)}%"></div></div></div>`).join("");
+  };
+
+  const won = S.leads.filter(l => l.status === "won").length;
+  const conv = S.leads.length ? Math.round(won / S.leads.length * 100) : 0;
+  const refLeads = S.leads.filter(l => l.lead_source === "referral");
+  const refWon = refLeads.filter(l => l.status === "won").length;
+  const refConv = refLeads.length ? Math.round(refWon / refLeads.length * 100) : null;
+  const otherLeads = S.leads.filter(l => l.lead_source && l.lead_source !== "referral");
+  const otherConv = otherLeads.length
+    ? Math.round(otherLeads.filter(l => l.status === "won").length / otherLeads.length * 100) : null;
+
+  return `<div class="head"><div><h1>Analytics</h1>
+      <div class="sub">Counted from real records. No projections, no sample data.</div></div></div>
+    <div class="grid g4" style="margin-bottom:14px">
+      <div class="kpi"><div class="t">Enquiries</div><div class="v">${S.leads.length}</div></div>
+      <div class="kpi"><div class="t">Won</div><div class="v">${won}</div></div>
+      <div class="kpi"><div class="t">Conversion</div><div class="v">${S.leads.length ? conv + "%" : DASH}</div></div>
+      <div class="kpi"><div class="t">Clients on record</div><div class="v">${S.clients.length}</div></div>
+    </div>
+    <div class="grid g2" style="margin-bottom:14px">
+      <div class="card"><h2 class="ttl">Enquiries by source</h2>${bd(S.leads,"lead_source",SRC)}</div>
+      <div class="card"><h2 class="ttl">Enquiries by status</h2>${bd(S.leads,"status",STATUS)}</div>
+    </div>
+    <div class="grid g2">
+      <div class="card"><h2 class="ttl">Clients by segment</h2>
+        ${S.clients.length ? bd(S.clients,"segment",SEG) : `<div class="empty">No clients on record yet.</div>`}</div>
+      <div class="card"><h2 class="ttl">Do referrals convert better?</h2>
+        ${refConv === null || otherConv === null
+          ? `<div class="empty">Not enough data yet. This compares how often a referred enquiry is won against every other source
+              &mdash; it needs won and lost outcomes recorded on both sides before it means anything.</div>`
+          : `<div style="display:flex;gap:26px;flex-wrap:wrap;margin-bottom:12px">
+              <div><div class="v" style="font-family:var(--serif);font-size:30px;font-weight:600;color:var(--ok)">${refConv}%</div>
+                <div class="sub">Referred enquiries won (${refLeads.length} enquiries)</div></div>
+              <div><div class="v" style="font-family:var(--serif);font-size:30px;font-weight:600">${otherConv}%</div>
+                <div class="sub">Every other source (${otherLeads.length} enquiries)</div></div></div>
+            <div class="note">Small numbers move this figure a lot. Treat it as a signal once both sides have run for a while,
+              not as a decision on its own.</div>`}</div>
+    </div>`;
+}
+
+function vSettings(){
+  const rows = S.staff.slice().sort((a,b) => (a.email > b.email ? 1 : -1)).map(u => `<tr>
+    <td class="nm">${esc(u.email)}<span class="meta">${esc(u.full_name || "")}</span></td>
+    <td><span class="badge b-${u.role}">${u.role === "admin" ? "Admin" : "Staff"}</span></td>
+    <td>${u.active ? `<span class="badge b-done">Active</span>` : `<span class="badge b-lost">No access</span>`}</td>
+    <td>${fmtD(u.added_at)}</td>
+    <td>${S.admin ? `<select data-t="portal_access" data-id="${esc(u.email)}" data-pk="email" data-k="role" style="min-width:104px">
+            ${opts({admin:"Admin", staff:"Staff"}, u.role)}</select>` : DASH}</td>
+    <td>${S.admin ? `<button class="btn sm ghost" data-toggle="${esc(u.email)}" data-to="${u.active ? "0" : "1"}">
+            ${u.active ? "Remove access" : "Restore access"}</button>` : DASH}</td></tr>`).join("");
+
+  return `<div class="head"><div><h1>Settings</h1>
+      <div class="sub">Who can sign in to this system</div></div>
+      ${S.admin ? `<button class="btn" id="addStaff">Add a staff member</button>` : ""}</div>
+    <div class="tblwrap" style="margin-bottom:18px"><table style="min-width:820px">
+      <thead><tr><th>Email</th><th>Role</th><th>Access</th><th>Added</th><th>Change role</th><th></th></tr></thead>
+      <tbody>${rows}</tbody></table></div>
+    <div class="card"><h2 class="ttl">How access actually works</h2>
+      <p style="color:var(--muted);line-height:1.7;margin:0 0 12px">
+        This website is a static site with no server, so the page in your browser can never be the thing that
+        keeps people out. The database is. Two separate layers do the work:</p>
+      <p style="color:var(--muted);line-height:1.7;margin:0 0 12px">
+        <b style="color:var(--ink)">Who can get an account at all.</b> An email that is not on this list cannot even
+        register. The signup is refused by the database itself.</p>
+      <p style="color:var(--muted);line-height:1.7;margin:0 0 12px">
+        <b style="color:var(--ink)">What a signed-in account can see.</b> Every enquiry, booking and client row is
+        readable only to an active account on this list. Someone removed here loses access immediately, everywhere.</p>
+      <p style="color:var(--muted);line-height:1.7;margin:0">
+        Only an <b style="color:var(--ink)">admin</b> can add, change or remove people. Removing access keeps the record
+        that the person once had it rather than erasing it, and the database refuses to let the last remaining admin
+        be removed &mdash; otherwise one click could lock the whole company out.</p></div>`;
+}
+
+/* ---------------------------------------------------------------- modals */
+function modal(title, sub, fields, onSave){
+  const el = document.createElement("div");
+  el.className = "veil";
+  el.innerHTML = `<div class="modal"><h3>${esc(title)}</h3><div class="sub">${esc(sub)}</div>
+    <div id="mErr"></div>
+    <div class="fgrid">${fields.map(f => `<div class="${f.full ? "full" : ""}">
+      <label class="lb" for="f_${f.k}">${esc(f.l)}${f.req ? " *" : ""}</label>
+      ${f.t === "select" ? `<select id="f_${f.k}">${opts(f.map, f.v, f.blank ?? "—")}</select>`
+        : f.t === "textarea" ? `<textarea id="f_${f.k}" rows="3"></textarea>`
+        : `<input id="f_${f.k}" type="${f.t || "text"}" ${f.attr || ""} value="${esc(f.v || "")}">`}</div>`).join("")}</div>
+    <div style="display:flex;gap:10px;margin-top:20px">
+      <button class="btn" id="mSave" style="flex:1">Save</button>
+      <button class="btn ghost" id="mCancel">Cancel</button></div></div>`;
+  document.body.appendChild(el);
+  const close = () => el.remove();
+  el.onclick = e => { if (e.target === el) close(); };
+  $("mCancel").onclick = close;
+  $("mSave").onclick = async () => {
+    const val = {};
+    fields.forEach(f => { const v = $("f_" + f.k).value.trim(); if (v !== "") val[f.k] = v; });
+    const missing = fields.filter(f => f.req && !val[f.k]);
+    if (missing.length){ $("mErr").innerHTML = `<div class="err">Please fill in: ${missing.map(f => esc(f.l)).join(", ")}.</div>`; return; }
+    const b = $("mSave"); b.disabled = true; b.textContent = "Saving…";
+    const err = await onSave(val);
+    if (err){ $("mErr").innerHTML = `<div class="err">${esc(err)}</div>`; b.disabled = false; b.textContent = "Save"; return; }
+    close();
+  };
+}
+
+function addBookingModal(pref){
+  modal("Add a booking", "Site survey, installation, service call or health check", [
+    { k:"name", l:"Name", req:true, v: pref?.name },
+    { k:"phone", l:"Phone", v: pref?.phone },
+    { k:"kind", l:"Type", t:"select", map:KIND, v:"site_survey", blank:null },
+    { k:"scheduled_at", l:"When", t:"datetime-local", req:true },
+    { k:"city", l:"City", v: pref?.city },
+    { k:"assigned_to", l:"Assigned to" },
+    { k:"address", l:"Address", full:true },
+    { k:"notes", l:"Notes", t:"textarea", full:true }
+  ], async v => {
+    v.scheduled_at = new Date(v.scheduled_at).toISOString();
+    if (pref?.id) v.lead_id = pref.id;
+    const { error } = await sb.from("bookings").insert(v);
+    if (error) return error.message;
+    await loadAll(); return null;
+  });
+}
+
+function addClientModal(pref){
+  modal("Add a client", "A customer who bought. Past installs belong here too.", [
+    { k:"name", l:"Name", req:true, v: pref?.name },
+    { k:"phone", l:"Phone", req:true, v: pref?.phone },
+    { k:"city", l:"City", v: pref?.city },
+    { k:"segment", l:"Segment", t:"select", map:SEG, v:"residential", blank:null },
+    { k:"system_kw", l:"System size (kW)", t:"number", attr:'step="0.1" min="0"' },
+    { k:"system_type", l:"System type", t:"select", map:SYS },
+    { k:"install_date", l:"Install date", t:"date" },
+    { k:"order_value", l:"Order value (₹)", t:"number", attr:'min="0"' },
+    { k:"lead_source", l:"Came from", t:"select", map:SRC, v: pref?.lead_source },
+    { k:"referred_by", l:"Referred by", v: pref?.referred_by },
+    { k:"subsidy_status", l:"Subsidy", t:"select", map:SUBSIDY },
+    { k:"discom_consumer_no", l:"DISCOM consumer no." },
+    { k:"address", l:"Address", full:true },
+    { k:"notes", l:"Notes", t:"textarea", full:true }
+  ], async v => {
+    if (pref?.id) v.source_lead_id = pref.id;
+    const { error } = await sb.from("clients").insert(v);
+    if (error) return error.message;
+    if (pref?.id) await sb.from("leads").update({ status:"won" }).eq("id", pref.id);
+    await loadAll(); return null;
+  });
+}
+
+function addStaffModal(){
+  modal("Add a staff member", "They can then create their own password, or sign in with Google.", [
+    { k:"email", l:"Email", t:"email", req:true, full:true },
+    { k:"full_name", l:"Name", full:true },
+    { k:"role", l:"Role", t:"select", map:{ staff:"Staff", admin:"Admin" }, v:"staff", blank:null },
+    { k:"note", l:"Note (what they do)" }
+  ], async v => {
+    v.email = v.email.toLowerCase();
+    const { error } = await sb.from("portal_access").insert(v);
+    if (error) return /duplicate|unique/i.test(error.message)
+      ? "That email already has access. Check the list above." : error.message;
+    await loadAll(); return null;
+  });
+}
+
+/* ---------------------------------------------------------------- render + wiring */
+function render(){
+  const V = { dashboard:vDashboard, enquiries:vEnquiries, bookings:vBookings,
+              clients:vClients, analytics:vAnalytics, settings:vSettings };
+  app.innerHTML = shell((V[S.view] || vDashboard)());
+  S.msg = null;
+
+  app.querySelectorAll(".nav").forEach(b => b.onclick = () => { S.view = b.dataset.v; S.filter = "all"; render(); });
+  $("out").onclick = async () => { await sb.auth.signOut(); location.reload(); };
+  const rf = $("refresh"); if (rf) rf.onclick = () => loadAll();
+  app.querySelectorAll(".chip").forEach(c => c.onclick = () => { S.filter = c.dataset.f; render(); });
+
+  const ab = $("addBooking"); if (ab) ab.onclick = () => addBookingModal();
+  const ac = $("addClient");  if (ac) ac.onclick = () => addClientModal();
+  const as = $("addStaff");   if (as) as.onclick = () => addStaffModal();
+
+  app.querySelectorAll("[data-conv]").forEach(b => b.onclick = () =>
+    addClientModal(S.leads.find(l => l.id === b.dataset.conv)));
+
+  app.querySelectorAll("[data-ask]").forEach(b => b.onclick = async () => {
+    b.disabled = true;
+    const { error } = await sb.from("clients").update({ referral_asked_at: new Date().toISOString() }).eq("id", b.dataset.ask);
+    if (error){ S.msg = { k:"err", t:"Could not save: " + error.message }; }
+    await loadAll();
+  });
+
+  app.querySelectorAll("[data-toggle]").forEach(b => b.onclick = async () => {
+    b.disabled = true;
+    const { error } = await sb.from("portal_access")
+      .update({ active: b.dataset.to === "1" }).eq("email", b.dataset.toggle);
+    /* The database refuses to strip the last admin. Show that refusal as it is. */
+    if (error) S.msg = { k:"err", t: error.message };
+    await loadAll();
+  });
+
+  app.querySelectorAll("select[data-k],textarea[data-k]").forEach(el => el.onchange = async () => {
+    const patch = {}; patch[el.dataset.k] = el.value;
+    const t = el.dataset.t, pk = el.dataset.pk || "id";
+    if (t === "leads" && el.dataset.k === "status" && el.value !== "new"){
+      const lead = S.leads.find(l => l.id === el.dataset.id);
+      if (lead && !lead.contacted_at) patch.contacted_at = new Date().toISOString();
+    }
+    const { error } = await sb.from(t).update(patch).eq(pk, el.dataset.id);
+    if (error) S.msg = { k:"err", t:"Could not save: " + error.message };
+    await loadAll();
+  });
+}
+
+async function loadAll(){
+  const [l, c, b, s] = await Promise.all([
+    sb.from("leads").select("*").order("created_at", { ascending:false }),
+    sb.from("clients").select("*").order("created_at", { ascending:false }),
+    sb.from("bookings").select("*").order("scheduled_at", { ascending:false }),
+    sb.from("portal_access").select("*")
+  ]);
+  const bad = [l,c,b,s].find(r => r.error);
+  if (bad){
+    /* A missing table means the migration has not been applied yet - say so plainly
+       instead of showing an empty dashboard that looks like a working, quiet business. */
+    const m = bad.error.message || "";
+    app.innerHTML = shell(`<div class="err">${esc(m)}</div><div class="card"><div class="empty">
+      <b>The database is not ready yet</b>
+      ${/does not exist|schema cache/i.test(m)
+        ? "Run <code>supabase/migrations/20260923_management_system.sql</code> on the project, then reload this page."
+        : "Could not read from the database."}</div></div>`);
+    $("out").onclick = async () => { await sb.auth.signOut(); location.reload(); };
+    app.querySelectorAll(".nav").forEach(n => n.onclick = () => {});
+    return;
+  }
+  S.leads = l.data || []; S.clients = c.data || []; S.bookings = b.data || []; S.staff = s.data || [];
+  render();
+}
+
+async function boot(){
+  const { data:{ session } } = await sb.auth.getSession();
+  if (!session) return signInScreen();
+  S.email = session.user.email || "";
+  const [u, a] = await Promise.all([sb.rpc("is_portal_user"), sb.rpc("is_portal_admin")]);
+  if (u.error) return signInScreen(u.error.message);
+  if (!u.data) return deniedScreen(S.email);
+  S.admin = !!a.data;
+  await loadAll();
+}
+
+sb.auth.onAuthStateChange(e => { if (e === "SIGNED_IN" || e === "SIGNED_OUT") boot(); });
+boot();
+</script>
+</body>
+</html>
