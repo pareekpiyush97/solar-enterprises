@@ -202,3 +202,12 @@ do $$ begin
     check (lead_source is null or lead_source in
       ('referral','google_search','google_maps','instagram','facebook','whatsapp','walk_in','hoarding','ads','tender','other'));
 exception when others then null; end $$;
+
+-- ---------------------------------------------------------------- seal trigger functions
+-- Trigger functions must never be callable over the REST API. protect_last_admin and
+-- reject_unapproved_signup are SECURITY DEFINER, so an exposed /rpc/ endpoint for either is
+-- a real hole. is_portal_user and is_portal_admin stay callable by `authenticated` on
+-- purpose - the portal asks them "am I allowed in?" on every load.
+revoke execute on function public.protect_last_admin()       from anon, authenticated, public;
+revoke execute on function public.touch_updated_at()         from anon, authenticated, public;
+revoke execute on function public.reject_unapproved_signup() from anon, authenticated, public;
