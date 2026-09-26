@@ -11,7 +11,7 @@
  * and counting your own team's visits would both pollute the numbers and track
  * staff for no reason.
  */
-const MEASUREMENT_ID = "";
+const MEASUREMENT_ID = "G-VN064KBSJ7";
 
 /* ------------------------------------------------------------------ */
 if (MEASUREMENT_ID) {
