@@ -157,6 +157,9 @@ function mount(host){
       });
       if (!res.ok) throw new Error("HTTP " + res.status);
       host.innerHTML = successMarkup(name.split(" ")[0]);
+      /* Analytics listens for this. Fired here and nowhere else, so a failed
+         send or a caught bot never counts as a lead. */
+      document.dispatchEvent(new CustomEvent("solar:lead", { detail: { form: "website_enquiry" } }));
     } catch (err) {
       /* Never lose the enquiry because a request failed. Hand them to WhatsApp
          with everything they typed already in the message. */

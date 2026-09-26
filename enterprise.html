@@ -296,6 +296,7 @@
       .then(function(){
         form.hidden=true;
         var t=document.getElementById('inqThanks'); t.hidden=false; t.scrollIntoView({block:'center'});
+        document.dispatchEvent(new CustomEvent('solar:lead',{detail:{form:'epc_tender_inquiry'}}));
       })
       .catch(function(){
         if(btn) btn.disabled=false; if(bt) bt.textContent='Submit inquiry';
@@ -323,6 +324,7 @@
   </ol>
   <p class="ios-hint__note">Opened in Chrome or WhatsApp? Open this page in Safari first.</p>
 </div>
+<script type="module" src="/js/analytics.js?v=1"></script>
 <script src="/js/pwa.js?v=2"></script>
 <!-- PWA-FLOAT-END -->
 </body>
