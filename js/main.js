@@ -174,8 +174,30 @@
       gsap.to(el, { y: 0, opacity: 1, duration: 1, ease: 'expo.out',
         scrollTrigger: { trigger: el, start: 'top 90%' } });
     });
-  } else if (reduce) {
-    $$('.reveal,.reveal-img').forEach(function (el) { el.style.opacity = 1; });
+  } else {
+    /* No GSAP, or reduced motion. This used to be `else if (reduce)`, which left a
+       hole: when GSAP failed to load and the visitor had NOT asked for reduced
+       motion, neither branch ran and all 62 .reveal elements stayed at opacity 0
+       forever. Roughly half the page silently disappeared -- everything below the
+       hero -- for anyone whose network blocks cdnjs, and for any renderer that
+       could not fetch it. .reveal-lines was missing from the list too. */
+    showEverything();
+  }
+
+  /* Belt and braces: if the CDN is merely slow rather than blocked, the branch above
+     has already run by the time GSAP arrives. Re-check once, and if GSAP still is not
+     here, make sure nothing is left invisible. Deliberately does NOT touch a working
+     GSAP setup, so the scroll animations behave exactly as designed. */
+  setTimeout(function () {
+    if (typeof gsap === 'undefined') showEverything();
+  }, 3000);
+
+  function showEverything() {
+    $$('.reveal,.reveal-img,.reveal-lines').forEach(function (el) {
+      el.style.opacity = 1;
+      el.style.transform = 'none';
+    });
+    $$('.hero__title .line>span').forEach(function (s) { s.style.transform = 'none'; });
   }
 
   /* ---------------- parallax ---------------- */
