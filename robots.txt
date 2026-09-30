@@ -1,94 +1,11 @@
 User-agent: *
 Allow: /
-# Staff-only management system. Not for indexing.
-Disallow: /portal.html
-Disallow: /leads.html
 
-# AI search & answer engines - explicitly welcome to read the whole public site.
-# NOTE: a crawler that matches its OWN block ignores the "*" block entirely, so the
-# portal Disallow has to be repeated for each one. Without that, every agent below
-# would have been free to crawl the staff system.
-User-agent: GPTBot
-Allow: /
-Disallow: /portal.html
-Disallow: /leads.html
+# Nothing here is restricted. Every crawler, search engine and AI agent may read
+# every public page. The staff pages keep themselves out of search with their own
+# noindex meta tag rather than with a Disallow, which is the mechanism that works.
 
-User-agent: OAI-SearchBot
-Allow: /
-Disallow: /portal.html
-Disallow: /leads.html
-
-User-agent: ChatGPT-User
-Allow: /
-Disallow: /portal.html
-Disallow: /leads.html
-
-User-agent: Google-Extended
-Allow: /
-Disallow: /portal.html
-Disallow: /leads.html
-
-User-agent: Google-CloudVertexBot
-Allow: /
-Disallow: /portal.html
-Disallow: /leads.html
-
-User-agent: PerplexityBot
-Allow: /
-Disallow: /portal.html
-Disallow: /leads.html
-
-User-agent: ClaudeBot
-Allow: /
-Disallow: /portal.html
-Disallow: /leads.html
-
-User-agent: anthropic-ai
-Allow: /
-Disallow: /portal.html
-Disallow: /leads.html
-
-User-agent: Claude-Web
-Allow: /
-Disallow: /portal.html
-Disallow: /leads.html
-
-User-agent: Applebot-Extended
-Allow: /
-Disallow: /portal.html
-Disallow: /leads.html
-
-User-agent: meta-externalagent
-Allow: /
-Disallow: /portal.html
-Disallow: /leads.html
-
-User-agent: CCBot
-Allow: /
-Disallow: /portal.html
-Disallow: /leads.html
-
-User-agent: cohere-ai
-Allow: /
-Disallow: /portal.html
-Disallow: /leads.html
-
-User-agent: DuckAssistBot
-Allow: /
-Disallow: /portal.html
-Disallow: /leads.html
-
-User-agent: Amazonbot
-Allow: /
-Disallow: /portal.html
-Disallow: /leads.html
-
-User-agent: Bingbot
-Allow: /
-Disallow: /portal.html
-Disallow: /leads.html
-
-# Plain-language summary of the firm for AI agents
+# Plain-language summary of the firm for AI agents:
 # https://solarenergyenterprise.com/llms.txt
 
 Sitemap: https://solarenergyenterprise.com/sitemap.xml
