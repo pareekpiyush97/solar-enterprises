@@ -492,6 +492,65 @@ p{margin:0}
 @media (max-width:560px){.pwa-install{height:44px;font-size:13px;padding:0 15px}.wa-fab{height:54px}.wa-fab svg{width:28px;height:28px}}
 @media (prefers-reduced-motion:reduce){.wa-fab::after{animation:none}.wa-fab,.pwa-install{transition:none}}
 
+/* ============ Residential price table ============ */
+/* "What does it cost" is the first question a solar buyer has, and until now the
+   answer lived inside a collapsed FAQ accordion -- two clicks deep, and invisible
+   to anyone scanning the page. */
+.ptable{background:#fff;border:1px solid rgba(14,31,51,.13);border-radius:16px;overflow:auto;
+  box-shadow:0 18px 44px rgba(14,31,51,.07)}
+.ptable table{width:100%;border-collapse:collapse;min-width:620px}
+.ptable th{background:#0a1f38;color:#fff;text-align:left;font-family:var(--sans);font-size:11px;
+  text-transform:uppercase;letter-spacing:.08em;padding:14px 18px;font-weight:600;white-space:nowrap}
+.ptable td{padding:18px;border-bottom:1px solid rgba(14,31,51,.08);vertical-align:middle;
+  font-family:var(--sans);font-size:15px;color:#33455e}
+.ptable tbody tr:last-child td{border-bottom:0}
+.ptable td b{color:#0e1f33;font-size:17px}
+.ptable__sub{display:block;font-size:12px;color:rgba(14,31,51,.45);margin-top:3px}
+.ptable__net b{color:#0f7b46;font-size:19px}
+.pnotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:26px}
+.pnote{background:#fff;border:1px solid rgba(14,31,51,.1);border-radius:14px;padding:20px 22px}
+.pnote h3{font-family:var(--serif);font-size:17px;font-weight:600;margin:0 0 8px;color:#0e1f33}
+.pnote p{font-family:var(--sans);font-size:14px;line-height:1.65;color:#33455e;margin:0}
+.pcta{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.ptable__only-sm{display:none}
+@media (max-width:620px){
+  .ptable table{min-width:0}
+  .ptable td{padding:13px 12px;font-size:14px}
+  .ptable th{padding:11px 12px;font-size:10px}
+  /* drop the bill and subsidy columns -- their numbers moved into the cells above,
+     so the table fits the screen instead of scrolling out of sight */
+  .ptable th:nth-child(2),.ptable td:nth-child(2),
+  .ptable th:nth-child(4),.ptable td:nth-child(4){display:none}
+  .ptable__only-sm{display:block}
+  .ptable td b{font-size:16px}
+  .ptable__net b{font-size:17px}
+  .pcta .btn{width:100%;justify-content:center}
+}
+
+/* ============ Floating tap-to-call ============ */
+/* The phone call is the highest-intent action on a local solar site, and until now
+   it was the only one you had to scroll to find -- WhatsApp floated, calling did not.
+   Sits directly above the WhatsApp pill, same shape and behaviour, brand blue so the
+   two read as different channels rather than one control. */
+.call-fab{position:fixed;right:clamp(16px,3vw,26px);
+  bottom:calc(clamp(16px,3vw,26px) + 70px + env(safe-area-inset-bottom,0px));
+  z-index:900;display:inline-flex;align-items:center;gap:0;height:58px;border-radius:999px;
+  background:#155a9e;color:#fff;text-decoration:none;padding:0 15px;
+  box-shadow:0 12px 30px rgba(21,90,158,.34),0 3px 8px rgba(0,0,0,.16);
+  transition:transform .28s var(--ease),box-shadow .28s var(--ease),gap .28s var(--ease),padding .28s var(--ease)}
+.call-fab svg{width:27px;height:27px;flex:0 0 auto;display:block}
+.call-fab__label{max-width:0;overflow:hidden;white-space:nowrap;font-family:var(--sans);font-weight:600;
+  font-size:15px;letter-spacing:-.01em;opacity:0;transition:max-width .3s var(--ease),opacity .25s var(--ease),margin .3s var(--ease)}
+@media (hover:hover){
+  .call-fab:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(21,90,158,.42),0 5px 12px rgba(0,0,0,.2)}
+  .call-fab:hover .call-fab__label{max-width:180px;opacity:1;margin-left:10px;margin-right:4px}
+}
+@media (max-width:560px){
+  .call-fab{height:54px;bottom:calc(clamp(16px,3vw,26px) + 66px + env(safe-area-inset-bottom,0px))}
+  .call-fab svg{width:25px;height:25px}
+}
+@media (prefers-reduced-motion:reduce){.call-fab{transition:none}}
+
 /* iOS install hint sheet — 3-step visual guide */
 .ios-hint{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(16px);
   z-index:950;width:min(340px,92vw);background:var(--dark);color:#fff;border-radius:18px;padding:20px 20px 18px;
